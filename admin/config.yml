@@ -1,0 +1,3896 @@
+backend:
+  name: git-gateway
+  accept_roles:
+    - admin
+    - editor
+  branch: main
+media_folder: theme/assets/images
+public_folder: /assets/images
+collections:
+  - name: pages
+    label: Pages
+    identifier_field: title
+    extension: md
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor: &ref_0
+      preview: false
+    folder: cms/pages
+    fields: &ref_1
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '{{slug}}.html'
+      - &ref_2
+        label: Seo
+        name: seo
+        widget: object
+        collapsed: true
+        fields:
+          - label: Title
+            name: title
+            widget: string
+            required: false
+          - label: Description
+            name: description
+            widget: string
+            required: false
+          - label: No index
+            name: noindex
+            widget: boolean
+            default: false
+            required: false
+          - label: Open Graph Title
+            name: og:title
+            widget: string
+            required: false
+          - label: Open Graph Image
+            name: og:image
+            widget: image
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: Twitter Title
+            name: twitter:title
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Card
+            name: twitter:card
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Site
+            name: twitter:site
+            widget: string
+            required: false
+          - label: Twitter Creator
+            name: twitter:creator
+            widget: string
+            required: false
+          - label: Twitter Image
+            name: twitter:image
+            widget: image
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: Additional HTML tags
+            name: additional_tags
+            widget: text
+            required: false
+  - name: pages-legal
+    label: Pages legal
+    identifier_field: title
+    extension: md
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor: *ref_0
+    folder: cms/pages/legal
+    fields: *ref_1
+  - name: pages-contact
+    label: Pages contact
+    identifier_field: title
+    extension: md
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor: *ref_0
+    folder: cms/pages/contact
+    fields: *ref_1
+  - name: author
+    label: Authors
+    folder: cms/author
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Bio
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_bio-summary
+        label: Bio Summary
+        widget: text
+        required: false
+      - hint: ''
+        name: f_picture
+        label: Picture
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_email
+        label: Email
+        widget: string
+        required: false
+      - hint: ''
+        name: f_twitter-profile-link
+        label: Twitter Profile Link
+        widget: string
+        required: false
+      - hint: ''
+        name: f_facebook-profile-link
+        label: Facebook Profile Link
+        widget: string
+        required: false
+      - hint: ''
+        name: f_title-company
+        label: Title | Company
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: author
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[author].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_2
+  - name: services
+    label: Services
+    folder: cms/services
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Service Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_service-heading
+        label: Service Heading
+        widget: string
+        required: false
+      - hint: ''
+        name: f_about-service
+        label: About Service
+        widget: text
+        required: false
+      - hint: ''
+        name: f_service-ribbon
+        label: Service Ribbon
+        widget: string
+        required: false
+      - hint: ''
+        name: f_benefit-description
+        label: Benefit Description
+        widget: text
+        required: false
+      - hint: ''
+        name: f_benefit-1
+        label: Benefit 1
+        widget: string
+        required: false
+      - hint: ''
+        name: f_benefit-2
+        label: Benefit 2
+        widget: string
+        required: false
+      - hint: ''
+        name: f_benefit-3
+        label: Benefit 3
+        widget: string
+        required: false
+      - hint: ''
+        name: f_service-question-1
+        label: Service Question 1
+        widget: string
+        required: false
+      - hint: ''
+        name: f_service-answer-1
+        label: Service Answer 1
+        widget: text
+        required: false
+      - hint: ''
+        name: f_service-question-2
+        label: Service Question 2
+        widget: string
+        required: false
+      - hint: ''
+        name: f_service-answer-2
+        label: Service Answer 2
+        widget: text
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: services
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[services].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_2
+  - name: portfolio
+    label: Portfolio
+    folder: cms/portfolio
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: About Project- Brand
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_business-type
+        label: Business Type
+        widget: select
+        required: false
+        options:
+          - label: New Business
+            value: New Business
+          - label: Existing Business
+            value: Existing Business
+      - hint: ''
+        name: f_thumbnail
+        label: Thumbnail
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_cover-image
+        label: Cover Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_about-business
+        label: About Business
+        widget: text
+        required: false
+      - hint: ''
+        name: f_branding-gallery
+        label: Branding Gallery
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_website-gallery
+        label: Website Gallery
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_about-project--website-2
+        label: About Project- Website
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_graphics-gallery
+        label: Graphics Gallery
+        widget: list
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_project-tags
+        label: Project Tags
+        widget: relation
+        required: false
+        collection: project_tags
+        value_field: cms/project-tags/{{slug}}.md
+        search_fields:
+          - slug
+          - name
+        display_fields:
+          - title
+        multiple: true
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: portfolio
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[portfolio].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_2
+  - name: blog
+    label: Blogs
+    folder: cms/blog
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Blog Title
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Blog Content
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_category
+        label: Category
+        widget: select
+        required: false
+        options:
+          - label: Brand Design
+            value: Brand Design
+          - label: Brand Strategy
+            value: Brand Strategy
+          - label: Brand Management
+            value: Brand Management
+          - label: Website Design
+            value: Website Design
+          - label: Quick Thoughts
+            value: Quick Thoughts
+          - label: Case Study
+            value: Case Study
+      - hint: ''
+        name: f_thumbnail-image
+        label: Thumbnail Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_cover-image
+        label: Cover Image
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_description
+        label: Description
+        widget: string
+        required: false
+      - hint: ''
+        name: f_author
+        label: Author
+        widget: relation
+        required: false
+        collection: author
+        value_field: cms/author/{{slug}}.md
+        search_fields:
+          - slug
+          - name
+        display_fields:
+          - title
+        multiple: true
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: blog
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[blog].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_2
+  - name: project_tags
+    label: Project Tags
+    folder: cms/project-tags
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: project-tags
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[project-tags].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_2
+  - label: Theme Settings
+    name: settings
+    identifier_field: title
+    extension: json
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    files:
+      - label: General
+        name: site
+        file: cms/_data/settings/site.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: General
+          - hint: Full domain url (needed for a correct sitemap file)
+            name: domain
+            label: Domain
+            widget: string
+            required: false
+          - name: favicon
+            label: Favicon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: apple_touch_icon
+            label: Apple Touch Icon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: header_additional_content
+            label: Additional Content Header
+            hint: Content here will be placed before </head> tag
+            widget: text
+            required: false
+          - name: footer_additional_content
+            label: Additional Content Footer
+            hint: Content here will be placed before </body> tag
+            widget: text
+            required: false
+          - name: images_optimization
+            label: Images Optimization
+            widget: object
+            collapsed: false
+            fields:
+              - label: Image Formats
+                name: formats
+                widget: select
+                multiple: true
+                options:
+                  - label: Avif
+                    value: avif
+                  - label: Webp
+                    value: webp
+              - label: Image Dimensions
+                name: dimensions
+                widget: select
+                multiple: true
+                options:
+                  - label: '500'
+                    value: 500
+                  - label: '800'
+                    value: 800
+                  - label: '1080'
+                    value: 1080
+                  - label: '1600'
+                    value: 1600
+                  - label: '2000'
+                    value: 2000
+                  - label: '2600'
+                    value: 2600
+      - label: Colors
+        name: colors
+        file: cms/_data/colors.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Colors
+      - label: Texts
+        name: texts
+        file: cms/_data/texts.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Texts
+          - hint: >-
+              Original text: 👋 We are in the process of updating our webiste!
+              👋, key: -76a6b418
+            label: Text
+            name: '-76a6b418'
+            widget: string
+          - hint: 'Original text: Schedule A Call, key: -31955b7a'
+            label: Text
+            name: '-31955b7a'
+            widget: string
+          - hint: 'Original text: Home, key: 2268ff'
+            label: Text
+            name: 2268ff
+            widget: string
+          - hint: 'Original text: About, key: 3c2336d'
+            label: Text
+            name: 3c2336d
+            widget: string
+          - hint: 'Original text: Portfolio, key: -45b0dad8'
+            label: Text
+            name: '-45b0dad8'
+            widget: string
+          - hint: 'Original text: Pricing, key: 507137a6'
+            label: Text
+            name: 507137a6
+            widget: string
+          - hint: 'Original text: Blog, key: 1fa3c2'
+            label: Text
+            name: 1fa3c2
+            widget: string
+          - hint: 'Original text: Crafting , key: -2ff22982'
+            label: Text
+            name: '-2ff22982'
+            widget: string
+          - hint: 'Original text: Brands , key: 6b6e2bb4'
+            label: Text
+            name: 6b6e2bb4
+            widget: string
+          - hint: 'Original text: ‍, key: 200d'
+            label: Text
+            name: 200d
+            widget: string
+          - hint: 'Original text: That Build Communities, key: 21d2913c'
+            label: Text
+            name: 21d2913c
+            widget: string
+          - hint: >-
+              Original text: Welcome to Tripass Design, where your passion for
+              your business meets our creative expertise. ⁤⁤We specialize in
+              building community-centric brands through in-depth brand
+              strategies, and powerful visual identities. Whether you're
+              starting a new business or ready to elevate your current brand or
+              website, we are here to help you make your vision a reality., key:
+              -5ba75291
+            label: Text
+            name: '-5ba75291'
+            widget: text
+          - hint: 'Original text: Check out our work, key: -3994abd1'
+            label: Text
+            name: '-3994abd1'
+            widget: string
+          - hint: "Original text: Our Services &\_Pricing, key: 21ecc97e"
+            label: Text
+            name: 21ecc97e
+            widget: string
+          - hint: >-
+              Original text: Graphic design • logo design • brand strategy •
+              website design • visual identity • Graphic design • logo design •
+              brand strategy • website design • visual identity • Graphic design
+              • logo design • brand strategy • website design • visual identity
+              •, key: -31d8ff3c
+            label: Text
+            name: '-31d8ff3c'
+            widget: text
+          - hint: 'Original text: Let''s , key: -788b0f67'
+            label: Text
+            name: '-788b0f67'
+            widget: string
+          - hint: 'Original text: Discover, key: 1422dc09'
+            label: Text
+            name: 1422dc09
+            widget: string
+          - hint: 'Original text:  your brands north star, key: 300ff8d4'
+            label: Text
+            name: 300ff8d4
+            widget: string
+          - hint: >-
+              Original text: We're about uncovering and amplifying what makes
+              your business unique. Let’s navigate the path to your brand’s
+              North Star together—bringing clarity, consistency, and a magnetic
+              appeal to your brand., key: 5b92cbf1
+            label: Text
+            name: 5b92cbf1
+            widget: text
+          - hint: >-
+              Original text: Tailor-made plans that align with your business
+              goals and target audience., key: -57fb437c
+            label: Text
+            name: '-57fb437c'
+            widget: string
+          - hint: >-
+              Original text: Expand your reach with a cohesive digital strategy
+              that enhances your online presence., key: 7628fb39
+            label: Text
+            name: 7628fb39
+            widget: string
+          - hint: >-
+              Original text: Articulate your brand's story in a way that
+              resonates and connects deeply with your audience., key: -341ba0d3
+            label: Text
+            name: '-341ba0d3'
+            widget: text
+          - hint: >-
+              Original text: Ensure every touchpoint with customers is coherent
+              and reinforces your brand values building trust., key: -42f45f28
+            label: Text
+            name: '-42f45f28'
+            widget: text
+          - hint: 'Original text: Creative , key: -64e159cf'
+            label: Text
+            name: '-64e159cf'
+            widget: string
+          - hint: 'Original text: Services, key: 560f747e'
+            label: Text
+            name: 560f747e
+            widget: string
+          - hint: 'Original text:  Tailored to your small business, key: -59127551'
+            label: Text
+            name: '-59127551'
+            widget: string
+          - hint: >-
+              Original text: Every business journey is unique, and so are our
+              solutions. That is why we offer customized services designed to
+              meet you exactly where you are. Whether you're planting the seeds
+              of a new venture or nurturing a your enterprise, our creative
+              services are tailored to fuel your specific growth needs., key:
+              -1eaeb4f1
+            label: Text
+            name: '-1eaeb4f1'
+            widget: text
+          - hint: 'Original text: For New Businesses, key: 5fa21b85'
+            label: Text
+            name: 5fa21b85
+            widget: string
+          - hint: 'Original text: For Established Brands, key: 198b706b'
+            label: Text
+            name: 198b706b
+            widget: string
+          - hint: 'Original text: Foundations, key: 5e723a00'
+            label: Text
+            name: 5e723a00
+            widget: string
+          - hint: 'Original text:  for Brand Growth, key: -701ea529'
+            label: Text
+            name: '-701ea529'
+            widget: string
+          - hint: >-
+              Original text: Brand strategy is the blueprint for building a
+              successful brand. It involves a thoughtful blend of market
+              research, brand positioning, and targeted communication
+              strategies., key: 526345a8
+            label: Text
+            name: 526345a8
+            widget: text
+          - hint: 'Original text: Comprehensive Brand Audits, key: 720a655d'
+            label: Text
+            name: 720a655d
+            widget: string
+          - hint: >-
+              Original text: Dive deep into the current state of your brand with
+              our thorough brand audits. We evaluate your visual and strategic
+              elements to identify strengths and pinpoint areas for improvement,
+              ensuring your brand is aligned with market demands and ready for
+              future growth., key: -27b9fd07
+            label: Text
+            name: '-27b9fd07'
+            widget: text
+          - hint: 'Original text: Crafting Your Purpose and Vision, key: 5a9bef82'
+            label: Text
+            name: 5a9bef82
+            widget: string
+          - hint: >-
+              Original text: Define the heartbeat of your brand with our purpose
+              and vision development services. We help you articulate a clear
+              and compelling future state for your business that inspires your
+              team and connects emotionally with your customers., key: -4fdabae5
+            label: Text
+            name: '-4fdabae5'
+            widget: text
+          - hint: >-
+              Original text: Building Your Internal Brand Strategy, key:
+              2c44c8ce
+            label: Text
+            name: 2c44c8ce
+            widget: string
+          - hint: >-
+              Original text: Lay a solid foundation with our internal brand
+              strategy development. From crafting a memorable mission statement
+              to defining your core values, target market, brand voice, unique
+              selling proposition (USP), and marketing strategy, we cover all
+              bases to position your brand for success., key: 5f4a2ff2
+            label: Text
+            name: 5f4a2ff2
+            widget: text
+          - hint: 'Original text: Enhancing Customer Experience, key: -11171ce9'
+            label: Text
+            name: '-11171ce9'
+            widget: string
+          - hint: >-
+              Original text: Transform how customers interact with your brand
+              across every touchpoint. Our customer experience strategies are
+              designed to create consistent, enjoyable, and meaningful
+              interactions that build loyalty and encourage brand advocacy.,
+              key: 32bf9ce
+            label: Text
+            name: 32bf9ce
+            widget: text
+          - hint: 'Original text: Schedule A Free Call, key: -76542576'
+            label: Text
+            name: '-76542576'
+            widget: string
+          - hint: 'Original text: Visual, key: -67418ca0'
+            label: Text
+            name: '-67418ca0'
+            widget: string
+          - hint: 'Original text:  Identity , key: 5c5eae2'
+            label: Text
+            name: 5c5eae2
+            widget: string
+          - hint: 'Original text: That Speaks Volumes, key: -64779a2d'
+            label: Text
+            name: '-64779a2d'
+            widget: string
+          - hint: >-
+              Original text: Cohesive visual elements that tell your story and
+              engage your audience. From logos to style guides, and all the
+              intricate details in between, we ensure every aspect of your
+              visual identity works., key: 565dd2df
+            label: Text
+            name: 565dd2df
+            widget: text
+          - hint: 'Original text: Custom Logo Design, key: -48955c3c'
+            label: Text
+            name: '-48955c3c'
+            widget: string
+          - hint: >-
+              Original text: A logo is more than just an image; it’s the face of
+              your brand. Our logo design service creates distinctive and
+              memorable logos that encapsulate your brands personality, ensuring
+              it stands out in a crowded marketplace., key: -459307aa
+            label: Text
+            name: '-459307aa'
+            widget: text
+          - hint: 'Original text: Comprehensive Brand Style Guides, key: 4eede80b'
+            label: Text
+            name: 4eede80b
+            widget: string
+          - hint: >-
+              Original text: Achieve consistency across all your branding with
+              our detailed style guides. From color palettes to font choices,
+              our guides ensure that every aspect of your brand is aligned,
+              enhancing brand recognition and trust., key: -669447ca
+            label: Text
+            name: '-669447ca'
+            widget: text
+          - hint: 'Original text: Versatile Graphic Design Solutions, key: -1fa401af'
+            label: Text
+            name: '-1fa401af'
+            widget: string
+          - hint: >-
+              Original text: Our graphic design services cover everything from
+              apparel design and custom patterns to social media graphics and
+              essential brand elements. We craft visually engaging designs that
+              not only look great but also communicate your brand’s personality
+              effectively., key: 12655bdf
+            label: Text
+            name: 12655bdf
+            widget: text
+          - hint: "Original text: Typography, color palettes, &\_More, key: -318b4aa5"
+            label: Text
+            name: '-318b4aa5'
+            widget: string
+          - hint: >-
+              Original text: We offer custom typography, carefully selected
+              color palettes, and additional design elements tailored to enhance
+              your brand’s unique aesthetic., key: -8daa786
+            label: Text
+            name: '-8daa786'
+            widget: text
+          - hint: 'Original text: Schedule a Free Call, key: 264232aa'
+            label: Text
+            name: 264232aa
+            widget: string
+          - hint: 'Original text: Elevate , key: 3d83b86'
+            label: Text
+            name: 3d83b86
+            widget: string
+          - hint: 'Original text: Your , key: 51a662d'
+            label: Text
+            name: 51a662d
+            widget: string
+          - hint: 'Original text: Online Presence, key: 2ab45028'
+            label: Text
+            name: 2ab45028
+            widget: string
+          - hint: >-
+              Original text: We don’t just build websites; we create unique
+              digital experiences tailored to your brand’s needs and your
+              audience’s expectations. From initial design to final development,
+              we ensure your website not only looks great but functions
+              flawlessly., key: 38910f62
+            label: Text
+            name: 38910f62
+            widget: text
+          - hint: 'Original text: Custom Website Design, key: 330c992'
+            label: Text
+            name: 330c992
+            widget: string
+          - hint: >-
+              Original text: Craft a unique online presence with our custom
+              website design service. We tailor every aspect of your website,
+              from layout to special elements, ensuring a one-of-a-kind user
+              experience that captures your brand’s essence., key: 11e5683b
+            label: Text
+            name: 11e5683b
+            widget: text
+          - hint: 'Original text: Customer Journey Mapping, key: 511d80c'
+            label: Text
+            name: 511d80c
+            widget: string
+          - hint: >-
+              Original text: Optimize your website’s user experience with
+              detailed customer journey mapping. We analyze and plan the paths
+              your visitors take to ensure smooth interactions and improved
+              engagement., key: 1dd6906
+            label: Text
+            name: 1dd6906
+            widget: text
+          - hint: 'Original text: Website Development, key: 416a88f6'
+            label: Text
+            name: 416a88f6
+            widget: string
+          - hint: >-
+              Original text: Bring your custom designs to life with our robust
+              website development services. We build secure, scalable, and
+              speedy websites in Webflow that ensure your business stands out
+              and performs well online., key: -13f08098
+            label: Text
+            name: '-13f08098'
+            widget: text
+          - hint: 'Original text: CMS Design and Development, key: -27ae4d19'
+            label: Text
+            name: '-27ae4d19'
+            widget: string
+          - hint: >-
+              Original text: Manage your website’s content effortlessly with our
+              CMS design and development services. Whether it’s team member
+              bios, event pages, or blog posts, Webflow's CMS solutions make
+              content management simple and efficient., key: -2d141310
+            label: Text
+            name: '-2d141310'
+            widget: text
+          - hint: 'Original text: Google Business Setup, key: 55f6fac4'
+            label: Text
+            name: 55f6fac4
+            widget: string
+          - hint: >-
+              Original text: Maximize your visibility with our Google Business
+              setup service, including Google Analytics and Google Business Page
+              assistance. We help you measure your success and enhance your
+              local search presence., key: 7bc4de6f
+            label: Text
+            name: 7bc4de6f
+            widget: text
+          - hint: 'Original text: Hear , key: 425ffd2'
+            label: Text
+            name: 425ffd2
+            widget: string
+          - hint: 'Original text: From, key: 218bca'
+            label: Text
+            name: 218bca
+            widget: string
+          - hint: 'Original text:  Our Clients, key: 277bb0d4'
+            label: Text
+            name: 277bb0d4
+            widget: string
+          - hint: 'Original text: ★★★★★, key: 299f74c5'
+            label: Text
+            name: 299f74c5
+            widget: string
+          - hint: >-
+              Original text: "Brandon did some design work for us. His
+              communication and ideas were exceptional. We plan to use his
+              talents again soon. I highly recommend him!", key: -6bee1f79
+            label: Text
+            name: '-6bee1f79'
+            widget: text
+          - hint: 'Original text: Rachel , key: -63170b1b'
+            label: Text
+            name: '-63170b1b'
+            widget: string
+          - hint: 'Original text: Wehner, key: -65ca2bdf'
+            label: Text
+            name: '-65ca2bdf'
+            widget: string
+          - hint: >-
+              Original text: "Brandon is a talented designer that is also
+              practical and thorough in his approach. He manages a great brand
+              building experience that takes into account many facets of your
+              business.", key: 5d06ea33
+            label: Text
+            name: 5d06ea33
+            widget: text
+          - hint: 'Original text: JEANNETTE , key: -64f32626'
+            label: Text
+            name: '-64f32626'
+            widget: string
+          - hint: 'Original text: BARSKY, key: 745a582e'
+            label: Text
+            name: 745a582e
+            widget: string
+          - hint: >-
+              Original text: "Many of my business contacts have commented on the
+              professionalism of my website and graphics, adding further proof
+              about the high quality work that is done by Tripass Design.", key:
+              4594c0be
+            label: Text
+            name: 4594c0be
+            widget: text
+          - hint: 'Original text: Amber , key: 751917bd'
+            label: Text
+            name: 751917bd
+            widget: string
+          - hint: 'Original text: Grady, key: 41dcfcb'
+            label: Text
+            name: 41dcfcb
+            widget: string
+          - hint: 'Original text: The , key: 27c1ef'
+            label: Text
+            name: 27c1ef
+            widget: string
+          - hint: 'Original text: Latest, key: -78c28459'
+            label: Text
+            name: '-78c28459'
+            widget: string
+          - hint: 'Original text:  Design News, key: 2045e7d5'
+            label: Text
+            name: 2045e7d5
+            widget: string
+          - hint: 'Original text: Read More, key: 318af39f'
+            label: Text
+            name: 318af39f
+            widget: string
+          - hint: 'Original text: No items found., key: 3d503d2b'
+            label: Text
+            name: 3d503d2b
+            widget: string
+          - hint: >-
+              Original text: Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. , key: 39fc5310
+            label: Text
+            name: 39fc5310
+            widget: string
+          - hint: 'Original text: Company, key: -64202ba3'
+            label: Text
+            name: '-64202ba3'
+            widget: string
+          - hint: 'Original text: About Us, key: 645efc51'
+            label: Text
+            name: 645efc51
+            widget: string
+          - hint: 'Original text: Terms of Service, key: -7fe2d65b'
+            label: Text
+            name: '-7fe2d65b'
+            widget: string
+          - hint: 'Original text: Privacy Policy, key: -3fbde6f6'
+            label: Text
+            name: '-3fbde6f6'
+            widget: string
+          - hint: 'Original text: Cookie Policy, key: 63af666e'
+            label: Text
+            name: 63af666e
+            widget: string
+          - hint: 'Original text: Resources, key: 13ede05'
+            label: Text
+            name: 13ede05
+            widget: string
+          - hint: 'Original text: Contact, key: -64104400'
+            label: Text
+            name: '-64104400'
+            widget: string
+          - hint: 'Original text: Call Us, key: -7c14e460'
+            label: Text
+            name: '-7c14e460'
+            widget: string
+          - hint: 'Original text: Email Us, key: 3137a5e2'
+            label: Text
+            name: 3137a5e2
+            widget: string
+          - hint: >-
+              Original text: Copyright © 2024 Tripass Design. All Rights
+              Reserved., key: 33ff02c0
+            label: Text
+            name: 33ff02c0
+            widget: string
+          - hint: >-
+              Original text: By clicking “Accept All”, you agree to the storing
+              of cookies on your device to enhance site navigation, analyze site
+              usage, and assist in our marketing efforts. View our , key:
+              3d0b7647
+            label: Text
+            name: 3d0b7647
+            widget: text
+          - hint: 'Original text:  for more information., key: -466d844a'
+            label: Text
+            name: '-466d844a'
+            widget: string
+          - hint: 'Original text: Decline, key: -40d9052a'
+            label: Text
+            name: '-40d9052a'
+            widget: string
+          - hint: 'Original text: Accept All, key: 2d975a89'
+            label: Text
+            name: 2d975a89
+            widget: string
+          - hint: 'Original text: Discover the , key: -5364807a'
+            label: Text
+            name: '-5364807a'
+            widget: string
+          - hint: 'Original text: Vision, key: -6741b7f8'
+            label: Text
+            name: '-6741b7f8'
+            widget: string
+          - hint: 'Original text: Behind Tripass Design, key: 5b14b9e8'
+            label: Text
+            name: 5b14b9e8
+            widget: string
+          - hint: >-
+              Original text: Welcome to Tripass Design, where your business
+              vision meets creative passion and expertise. Founded and fueled by
+              a deep commitment to help small businesses thrive, Tripass Design
+              is your dedicated partner in crafting compelling brand identities
+              and powerful digital experiences., key: -7290f01e
+            label: Text
+            name: '-7290f01e'
+            widget: text
+          - hint: 'Original text: Brands, key: 771411ec'
+            label: Text
+            name: 771411ec
+            widget: string
+          - hint: 'Original text:  And Creating Connection, key: -7e968964'
+            label: Text
+            name: '-7e968964'
+            widget: string
+          - hint: >-
+              Original text: At Tripass Design, our approach sets us apart. We
+              dive deep into the heart of your brand, partnering closely with
+              you to uncover and articulate its true personality. Our commitment
+              is to create not just visually appealing designs, but tailored
+              branding solutions that resonate deeply with your target
+              audience—from tech startups to local gems. , key: 4d96161b
+            label: Text
+            name: 4d96161b
+            widget: text
+          - hint: >-
+              Original text: Beyond aesthetics, our mission is to cultivate
+              enduring relationships, seamlessly blending strategy with
+              creativity to enhance your brand at every stage of its journey.
+              Whether you're unveiling a new brand or revitalizing an
+              established one, we're here to light the way., key: e973127
+            label: Text
+            name: e973127
+            widget: text
+          - hint: 'Original text: A , key: 7ff'
+            label: Text
+            name: 7ff
+            widget: string
+          - hint: 'Original text: Message, key: -63dc6819'
+            label: Text
+            name: '-63dc6819'
+            widget: string
+          - hint: 'Original text:  From Founder Brandon., key: -354257b1'
+            label: Text
+            name: '-354257b1'
+            widget: string
+          - hint: >-
+              Original text: My journey into the world of branding and design
+              began with a simple yet profound passion for helping businesses
+              thrive. From the early days of developing my own fitness app to
+              collaborating with large brands, each step has deepened my
+              understanding of what makes a brand truly resonate. At Tripass
+              Design, we're dedicated to more than just design; we're about
+              creating lasting impacts through strategic creativity and a
+              personalized touch. My mission is to help your business stand out,
+              connect with your community, and grow in meaningful ways. Thank
+              you for considering us as your partner in this exciting journey.,
+              key: -5618ed7a
+            label: Text
+            name: '-5618ed7a'
+            widget: text
+          - hint: 'Original text: Principles at the, key: -6630f353'
+            label: Text
+            name: '-6630f353'
+            widget: string
+          - hint: 'Original text:  Heart , key: 1d616cda'
+            label: Text
+            name: 1d616cda
+            widget: string
+          - hint: 'Original text: of Our Work, key: 6d2503ce'
+            label: Text
+            name: 6d2503ce
+            widget: string
+          - hint: 'Original text: Take The Initiative, key: 3a9709f4'
+            label: Text
+            name: 3a9709f4
+            widget: string
+          - hint: >-
+              Original text: Be proactive in life and work. Seek
+              self-improvement and volunteer in your community. Helping others
+              is the key to personal growth and success., key: -39e6cd7e
+            label: Text
+            name: '-39e6cd7e'
+            widget: text
+          - hint: 'Original text: Build Relationships, key: -42f89537'
+            label: Text
+            name: '-42f89537'
+            widget: string
+          - hint: >-
+              Original text: Build relationships, not just connections. Take
+              time to get to know people, and find ways to add value to their
+              lives and businesses., key: 724bc45d
+            label: Text
+            name: 724bc45d
+            widget: text
+          - hint: 'Original text: Make A Positve Impact, key: 53bba209'
+            label: Text
+            name: 53bba209
+            widget: string
+          - hint: >-
+              Original text: Strive for a daily positive impact. Selfless deeds
+              are key. We believe in doing the right thing without expectation
+              of anything in return., key: -1192a33b
+            label: Text
+            name: '-1192a33b'
+            widget: text
+          - hint: 'Original text: Invest In Yourself, key: 742c470f'
+            label: Text
+            name: 742c470f
+            widget: string
+          - hint: >-
+              Original text: Make yourself a priority. Invest in your growth and
+              development. Your future self will thank you for the time and
+              effort you put in today., key: 23f40af3
+            label: Text
+            name: 23f40af3
+            widget: text
+          - hint: >-
+              Original text: Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Suspendisse varius enim in eros elementum tristique. Duis
+              cursus, mi quis viverra ornare, eros dolor interdum., key:
+              -cdb6652
+            label: Text
+            name: '-cdb6652'
+            widget: text
+          - hint: 'Original text: Explore Our , key: -6d7f63ff'
+            label: Text
+            name: '-6d7f63ff'
+            widget: string
+          - hint: 'Original text:  Insights, key: -531983e5'
+            label: Text
+            name: '-531983e5'
+            widget: string
+          - hint: 'Original text: Let''s Start A Project, key: -134399fd'
+            label: Text
+            name: '-134399fd'
+            widget: string
+          - hint: >-
+              Original text: Blog • Blog • Blog • Blog • Blog • Blog • Blog •
+              Blog • Blog • Blog • Blog • Blog • Blog • Blog • Blog • Blog •
+              Blog • Blog • Blog • Blog • Blog • Blog • Blog • Blog • Blog •
+              Blog • Blog • Blog • Blog • Blog • Blog • Blog , key: 4fd2c42
+            label: Text
+            name: 4fd2c42
+            widget: text
+          - hint: 'Original text: All Posts, key: 4b6bc54'
+            label: Text
+            name: 4b6bc54
+            widget: string
+          - hint: 'Original text: Brand Design, key: 396b68b7'
+            label: Text
+            name: 396b68b7
+            widget: string
+          - hint: 'Original text: Website Design, key: 245d2d23'
+            label: Text
+            name: 245d2d23
+            widget: string
+          - hint: 'Original text: Brand Strategy, key: -463c8fd4'
+            label: Text
+            name: '-463c8fd4'
+            widget: string
+          - hint: 'Original text: Quick Thoughts, key: 3012be8d'
+            label: Text
+            name: 3012be8d
+            widget: string
+          - hint: 'Original text: Case Studies, key: -667f9cc9'
+            label: Text
+            name: '-667f9cc9'
+            widget: string
+          - hint: 'Original text: Brand Design , key: -bfe51b7'
+            label: Text
+            name: '-bfe51b7'
+            widget: string
+          - hint: 'Original text: Insights, key: 24589bfb'
+            label: Text
+            name: 24589bfb
+            widget: string
+          - hint: 'Original text: Website Design , key: 6748775d'
+            label: Text
+            name: 6748775d
+            widget: string
+          - hint: 'Original text: Stay Tuned for upcoming posts!, key: 1d3a4320'
+            label: Text
+            name: 1d3a4320
+            widget: string
+          - hint: 'Original text: Brand Strategy , key: 7eaa9574'
+            label: Text
+            name: 7eaa9574
+            widget: string
+          - hint: 'Original text: Quick , key: -6f257c0d'
+            label: Text
+            name: '-6f257c0d'
+            widget: string
+          - hint: 'Original text: Thoughts, key: 5775dd9a'
+            label: Text
+            name: 5775dd9a
+            widget: string
+          - hint: 'Original text: Case , key: 3ddfad0'
+            label: Text
+            name: 3ddfad0
+            widget: string
+          - hint: 'Original text: Studies, key: -cc8d7f9'
+            label: Text
+            name: '-cc8d7f9'
+            widget: string
+          - hint: 'Original text: Our , key: 25ae74'
+            label: Text
+            name: 25ae74
+            widget: string
+          - hint: 'Original text: Design, key: 79ceadde'
+            label: Text
+            name: 79ceadde
+            widget: string
+          - hint: 'Original text:  Portfolio, key: 437d4908'
+            label: Text
+            name: 437d4908
+            widget: string
+          - hint: >-
+              Original text: Portfolio • Portfolio • Portfolio • Portfolio •
+              Portfolio • Portfolio • Portfolio • Portfolio • Portfolio •
+              Portfolio • Portfolio • Portfolio • Portfolio • Portfolio •
+              Portfolio • Portfolio • Portfolio , key: -5f584ca8
+            label: Text
+            name: '-5f584ca8'
+            widget: text
+          - hint: 'Original text: See All, key: -27627fec'
+            label: Text
+            name: '-27627fec'
+            widget: string
+          - hint: 'Original text: Branding, key: 2572f1b'
+            label: Text
+            name: 2572f1b
+            widget: string
+          - hint: 'Original text: Websites, key: -25e368a8'
+            label: Text
+            name: '-25e368a8'
+            widget: string
+          - hint: 'Original text: Graphics, key: 9db0eab'
+            label: Text
+            name: 9db0eab
+            widget: string
+          - hint: 'Original text: Are you , key: -62f821b3'
+            label: Text
+            name: '-62f821b3'
+            widget: string
+          - hint: 'Original text: ready, key: 675d9a3'
+            label: Text
+            name: 675d9a3
+            widget: string
+          - hint: 'Original text:  to, key: 869b'
+            label: Text
+            name: 869b
+            widget: string
+          - hint: 'Original text: elevate your brand?, key: -117e8501'
+            label: Text
+            name: '-117e8501'
+            widget: string
+          - hint: 'Original text: Explore Our Services, key: -4f878081'
+            label: Text
+            name: '-4f878081'
+            widget: string
+          - hint: >-
+              Original text: We specialize in building community-centric brands
+              through in-depth brand strategies, and powerful visual identities.
+              , key: -6cccea19
+            label: Text
+            name: '-6cccea19'
+            widget: text
+          - hint: 'Original text: Schedule A free call, key: 1248468a'
+            label: Text
+            name: 1248468a
+            widget: string
+          - hint: 'Original text: Some Recent Work, key: 3b1764aa'
+            label: Text
+            name: 3b1764aa
+            widget: string
+          - hint: 'Original text: Popular Links, key: 5b4a4f72'
+            label: Text
+            name: 5b4a4f72
+            widget: string
+          - hint: "Original text: Services &\_Pricing, key: 162500a"
+            label: Text
+            name: 162500a
+            widget: string
+          - hint: 'Original text: Our Portfolio, key: -500b86cc'
+            label: Text
+            name: '-500b86cc'
+            widget: string
+          - hint: 'Original text: Start A Project, key: 3a81bbbc'
+            label: Text
+            name: 3a81bbbc
+            widget: string
+          - hint: 'Original text: Privacy , key: -41424e48'
+            label: Text
+            name: '-41424e48'
+            widget: string
+          - hint: 'Original text: Policy, key: -712d6eae'
+            label: Text
+            name: '-712d6eae'
+            widget: string
+          - hint: 'Original text: Last Updated: 05/11/2023, key: -54876b25'
+            label: Text
+            name: '-54876b25'
+            widget: string
+          - hint: >-
+              Original text: Welcome to the Tripass Design website (the "Site").
+              This Privacy Policy explains how Tripass Design ("we," "us," or
+              "our") collects, uses, and discloses information about you when
+              you use our Site., key: -8dc86a0
+            label: Text
+            name: '-8dc86a0'
+            widget: text
+          - hint: 'Original text: Information We Collect, key: 63d0ad6c'
+            label: Text
+            name: 63d0ad6c
+            widget: string
+          - hint: >-
+              Original text: We collect information you provide directly to us
+              when you use our Site. The types of personal information we may
+              collect include your name, email address, phone number, and any
+              other information you choose to provide., key: 565afb8a
+            label: Text
+            name: 565afb8a
+            widget: text
+          - hint: >-
+              Original text: We also automatically collect certain information
+              about your device and usage of our Site. This may include your IP
+              address, browser type, operating system, referring URLs, and other
+              information about how you interact with our Site., key: -589e0b77
+            label: Text
+            name: '-589e0b77'
+            widget: text
+          - hint: 'Original text: How We Use Your Information, key: 4bfde45a'
+            label: Text
+            name: 4bfde45a
+            widget: string
+          - hint: >-
+              Original text: We use the information we collect to:, key:
+              141d5585
+            label: Text
+            name: 141d5585
+            widget: string
+          - hint: >-
+              Original text: Provide, maintain, and improve our Site and
+              services;, key: -77aca94c
+            label: Text
+            name: '-77aca94c'
+            widget: string
+          - hint: >-
+              Original text: Respond to your inquiries and provide customer
+              support;, key: -63e245c8
+            label: Text
+            name: '-63e245c8'
+            widget: string
+          - hint: >-
+              Original text: Send you important updates and announcements
+              related to our services;, key: -26444e1d
+            label: Text
+            name: '-26444e1d'
+            widget: string
+          - hint: >-
+              Original text: Personalize your experience on our Site;, key:
+              -e90bd6c
+            label: Text
+            name: '-e90bd6c'
+            widget: string
+          - hint: >-
+              Original text: Monitor and analyze usage trends, preferences, and
+              activities on our Site;, key: -4435ee97
+            label: Text
+            name: '-4435ee97'
+            widget: string
+          - hint: >-
+              Original text: Detect, investigate, and prevent fraudulent or
+              unauthorized activities;, key: -3c45ad84
+            label: Text
+            name: '-3c45ad84'
+            widget: string
+          - hint: 'Original text: Comply with legal obligations; and, key: 4dde4cda'
+            label: Text
+            name: 4dde4cda
+            widget: string
+          - hint: >-
+              Original text: Carry out any other purpose described to you at the
+              time the information was collected., key: -514b7748
+            label: Text
+            name: '-514b7748'
+            widget: string
+          - hint: 'Original text: Information Sharing, key: -59a88a58'
+            label: Text
+            name: '-59a88a58'
+            widget: string
+          - hint: >-
+              Original text: We may share your information with third-party
+              service providers who help us with various aspects of our business
+              operations, such as website hosting, data analysis, customer
+              support, and marketing. These service providers are authorized to
+              use your personal information only as necessary to provide these
+              services to us., key: 5ed28ac3
+            label: Text
+            name: 5ed28ac3
+            widget: text
+          - hint: >-
+              Original text: We may also disclose your information if required
+              by law, to protect our rights or the rights of others, or in
+              response to a lawful request from government authorities., key:
+              6e9c5b7
+            label: Text
+            name: 6e9c5b7
+            widget: text
+          - hint: 'Original text: Your Choices, key: 7422ac05'
+            label: Text
+            name: 7422ac05
+            widget: string
+          - hint: >-
+              Original text: You have the right to opt out of receiving
+              promotional emails from us by following the instructions provided
+              in those emails. Please note that even if you opt out, we may
+              still send you non-promotional emails, such as those related to
+              your account or our ongoing business relationship., key: -5da47a75
+            label: Text
+            name: '-5da47a75'
+            widget: text
+          - hint: 'Original text: Data Security, key: 118cfaf6'
+            label: Text
+            name: 118cfaf6
+            widget: string
+          - hint: >-
+              Original text: We take reasonable measures to help protect your
+              information from unauthorized access, alteration, or disclosure.
+              However, no method of transmission over the internet or electronic
+              storage is completely secure, and we cannot guarantee the absolute
+              security of your information., key: -11711cc9
+            label: Text
+            name: '-11711cc9'
+            widget: text
+          - hint: 'Original text: Links to Other Websites, key: -350ee5fa'
+            label: Text
+            name: '-350ee5fa'
+            widget: string
+          - hint: >-
+              Original text: Our Site may contain links to third-party websites
+              or services that are not owned or controlled by Tripass Design. We
+              are not responsible for the privacy practices or content of those
+              websites or services. We encourage you to review the privacy
+              policies of those third parties before providing any personal
+              information., key: -5bde3da6
+            label: Text
+            name: '-5bde3da6'
+            widget: text
+          - hint: 'Original text: Children''s Privacy, key: 377957d3'
+            label: Text
+            name: 377957d3
+            widget: string
+          - hint: >-
+              Original text: Our Site is not directed to individuals under the
+              age of 18. We do not knowingly collect personal information from
+              children. If you believe that we may have collected personal
+              information from a child, please contact us immediately., key:
+              -260857ee
+            label: Text
+            name: '-260857ee'
+            widget: text
+          - hint: 'Original text: Changes to this Privacy Policy, key: 793f7c4'
+            label: Text
+            name: 793f7c4
+            widget: string
+          - hint: >-
+              Original text: We may update this Privacy Policy from time to
+              time. Any changes we make will be posted on this page with a
+              revised "Last Updated" date. We encourage you to review this
+              Privacy Policy periodically to stay informed about how we are
+              protecting and using your information., key: 4ced722e
+            label: Text
+            name: 4ced722e
+            widget: text
+          - hint: 'Original text: Contact Us, key: 7f2746de'
+            label: Text
+            name: 7f2746de
+            widget: string
+          - hint: >-
+              Original text: If you have any questions, comments, or concerns
+              about this Privacy Policy or our privacy practices, please contact
+              us at , key: 7e45d026
+            label: Text
+            name: 7e45d026
+            widget: text
+          - hint: 'Original text: hello@tripassdesign.com, key: -d9fd561'
+            label: Text
+            name: '-d9fd561'
+            widget: string
+          - hint: 'Original text: ., key: 2e'
+            label: Text
+            name: 2e
+            widget: string
+          - hint: >-
+              Original text: By using the Tripass Design website, you
+              acknowledge that you have read, understood, and agree to be bound
+              by this Privacy Policy., key: 71ab5a23
+            label: Text
+            name: 71ab5a23
+            widget: text
+          - hint: >-
+              Original text: Our Pricing • Our Pricing • Our Pricing • Our
+              Pricing • Our Pricing • Our Pricing • Our Pricing • Our Pricing •
+              Our Pricing • Our Pricing • Our Pricing • Our Pricing • Our
+              Pricing • Our Pricing • Our Pricing • , key: -571a16ac
+            label: Text
+            name: '-571a16ac'
+            widget: text
+          - hint: 'Original text: Project , key: -37ac83b9'
+            label: Text
+            name: '-37ac83b9'
+            widget: string
+          - hint: 'Original text: Inquiry, key: -2834de59'
+            label: Text
+            name: '-2834de59'
+            widget: string
+          - hint: 'Original text: Business Information, key: -1b82e334'
+            label: Text
+            name: '-1b82e334'
+            widget: string
+          - hint: 'Original text: Are you a new or existing business? , key: 61bed5e5'
+            label: Text
+            name: 61bed5e5
+            widget: string
+          - hint: 'Original text: *, key: 2a'
+            label: Text
+            name: 2a
+            widget: string
+          - hint: 'Original text: Select one..., key: 57f3b1cc'
+            label: Text
+            name: 57f3b1cc
+            widget: string
+          - hint: 'Original text: New Business, key: -13747d80'
+            label: Text
+            name: '-13747d80'
+            widget: string
+          - hint: 'Original text: Existing Business, key: -6d1ce54b'
+            label: Text
+            name: '-6d1ce54b'
+            widget: string
+          - hint: >-
+              Original text: What industry is your business in? (Select all that
+              apply), key: -47c12170
+            label: Text
+            name: '-47c12170'
+            widget: string
+          - hint: 'Original text: Health and Wellness, key: 2de64b92'
+            label: Text
+            name: 2de64b92
+            widget: string
+          - hint: 'Original text: Technology, key: 12b9612c'
+            label: Text
+            name: 12b9612c
+            widget: string
+          - hint: 'Original text: Retail and E-Commerce, key: a0c9209'
+            label: Text
+            name: a0c9209
+            widget: string
+          - hint: 'Original text: Food and Drink, key: -14d32833'
+            label: Text
+            name: '-14d32833'
+            widget: string
+          - hint: 'Original text: Education, key: 661d8788'
+            label: Text
+            name: 661d8788
+            widget: string
+          - hint: 'Original text: Real Estate, key: 2c38700e'
+            label: Text
+            name: 2c38700e
+            widget: string
+          - hint: 'Original text: Finance, key: 305ce7ba'
+            label: Text
+            name: 305ce7ba
+            widget: string
+          - hint: "Original text: Entertainment &\_Recreation, key: 6fb824a4"
+            label: Text
+            name: 6fb824a4
+            widget: string
+          - hint: 'Original text: Other, key: 48f8ef0'
+            label: Text
+            name: 48f8ef0
+            widget: string
+          - hint: 'Original text: If other, please explain., key: 3714decc'
+            label: Text
+            name: 3714decc
+            widget: string
+          - hint: 'Original text: Do you have a business name? , key: -394210d5'
+            label: Text
+            name: '-394210d5'
+            widget: string
+          - hint: 'Original text: Yes, key: 15ac7'
+            label: Text
+            name: 15ac7
+            widget: string
+          - hint: 'Original text: No, key: 9e1'
+            label: Text
+            name: '9e1'
+            widget: string
+          - hint: >-
+              Original text: Business Name (If you don't have one, leave blank),
+              key: -706f103f
+            label: Text
+            name: '-706f103f'
+            widget: string
+          - hint: "Original text: Current Website\_(optional), key: 10aecd0d"
+            label: Text
+            name: 10aecd0d
+            widget: string
+          - hint: 'Original text: Address (optional), key: 784e056d'
+            label: Text
+            name: 784e056d
+            widget: string
+          - hint: 'Original text: City (optional), key: 14c9c356'
+            label: Text
+            name: 14c9c356
+            widget: string
+          - hint: 'Original text: State , key: -6bcd4631'
+            label: Text
+            name: '-6bcd4631'
+            widget: string
+          - hint: 'Original text: Alabama, key: 2c455c89'
+            label: Text
+            name: 2c455c89
+            widget: string
+          - hint: 'Original text: Alaska, key: 750abfd3'
+            label: Text
+            name: 750abfd3
+            widget: string
+          - hint: 'Original text: Arizona, key: 36fe49e0'
+            label: Text
+            name: 36fe49e0
+            widget: string
+          - hint: 'Original text: Arkansas, key: -552c0962'
+            label: Text
+            name: '-552c0962'
+            widget: string
+          - hint: 'Original text: California, key: 56f3e2d8'
+            label: Text
+            name: 56f3e2d8
+            widget: string
+          - hint: 'Original text: Colorado, key: -21a0b177'
+            label: Text
+            name: '-21a0b177'
+            widget: string
+          - hint: 'Original text: Connecticut, key: -35cb26fd'
+            label: Text
+            name: '-35cb26fd'
+            widget: string
+          - hint: 'Original text: Delaware, key: 347f2953'
+            label: Text
+            name: 347f2953
+            widget: string
+          - hint: 'Original text: Florida, key: 359130bd'
+            label: Text
+            name: 359130bd
+            widget: string
+          - hint: 'Original text: Georgia, key: 5e8578be'
+            label: Text
+            name: 5e8578be
+            widget: string
+          - hint: 'Original text: Hawaii, key: -7f9499fd'
+            label: Text
+            name: '-7f9499fd'
+            widget: string
+          - hint: 'Original text: Idaho, key: 433a20d'
+            label: Text
+            name: 433a20d
+            widget: string
+          - hint: 'Original text: Illinois, key: -51627f55'
+            label: Text
+            name: '-51627f55'
+            widget: string
+          - hint: 'Original text: Indiana, key: -28f1a2f6'
+            label: Text
+            name: '-28f1a2f6'
+            widget: string
+          - hint: 'Original text: Iowa, key: 22de90'
+            label: Text
+            name: 22de90
+            widget: string
+          - hint: 'Original text: Kansas, key: -7a79e4d3'
+            label: Text
+            name: '-7a79e4d3'
+            widget: string
+          - hint: 'Original text: Kentucky, key: 101bf13c'
+            label: Text
+            name: 101bf13c
+            widget: string
+          - hint: 'Original text: Louisiana, key: -a20e559'
+            label: Text
+            name: '-a20e559'
+            widget: string
+          - hint: 'Original text: Maine, key: 46ac1ac'
+            label: Text
+            name: 46ac1ac
+            widget: string
+          - hint: 'Original text: Maryland, key: 135b1766'
+            label: Text
+            name: 135b1766
+            widget: string
+          - hint: 'Original text: Massachusetts, key: -12d78d82'
+            label: Text
+            name: '-12d78d82'
+            widget: string
+          - hint: 'Original text: Michigan, key: -5ffc9794'
+            label: Text
+            name: '-5ffc9794'
+            widget: string
+          - hint: 'Original text: Minnesota, key: -4fa76f4e'
+            label: Text
+            name: '-4fa76f4e'
+            widget: string
+          - hint: 'Original text: Mississippi, key: -43003733'
+            label: Text
+            name: '-43003733'
+            widget: string
+          - hint: 'Original text: Missouri, key: -44111a47'
+            label: Text
+            name: '-44111a47'
+            widget: string
+          - hint: 'Original text: Montana, key: -5311f234'
+            label: Text
+            name: '-5311f234'
+            widget: string
+          - hint: 'Original text: Nebraska, key: 332045ef'
+            label: Text
+            name: 332045ef
+            widget: string
+          - hint: 'Original text: Nevada, key: -751f9d41'
+            label: Text
+            name: '-751f9d41'
+            widget: string
+          - hint: 'Original text: New Hampshire, key: -3043e3b5'
+            label: Text
+            name: '-3043e3b5'
+            widget: string
+          - hint: 'Original text: New Jersey, key: 57def930'
+            label: Text
+            name: 57def930
+            widget: string
+          - hint: 'Original text: New Mexico, key: 5d001775'
+            label: Text
+            name: 5d001775
+            widget: string
+          - hint: 'Original text: New York, key: 526ed28f'
+            label: Text
+            name: 526ed28f
+            widget: string
+          - hint: 'Original text: North Carolina, key: -1479bd7a'
+            label: Text
+            name: '-1479bd7a'
+            widget: string
+          - hint: 'Original text: North Dakota, key: 28d4f889'
+            label: Text
+            name: 28d4f889
+            widget: string
+          - hint: 'Original text: Ohio, key: 257cdf'
+            label: Text
+            name: 257cdf
+            widget: string
+          - hint: 'Original text: Oklahoma, key: -17752334'
+            label: Text
+            name: '-17752334'
+            widget: string
+          - hint: 'Original text: Oregon, key: -72bb357c'
+            label: Text
+            name: '-72bb357c'
+            widget: string
+          - hint: 'Original text: Pennsylvania, key: 3ca5a60a'
+            label: Text
+            name: 3ca5a60a
+            widget: string
+          - hint: 'Original text: Rhode Island, key: -19e5fe05'
+            label: Text
+            name: '-19e5fe05'
+            widget: string
+          - hint: 'Original text: South Carolina, key: 6bf022be'
+            label: Text
+            name: 6bf022be
+            widget: string
+          - hint: 'Original text: South Dakota, key: 2c2986c1'
+            label: Text
+            name: 2c2986c1
+            widget: string
+          - hint: 'Original text: Tennessee, key: 1eb2f374'
+            label: Text
+            name: 1eb2f374
+            widget: string
+          - hint: 'Original text: Texas, key: 4cf6e79'
+            label: Text
+            name: 4cf6e79
+            widget: string
+          - hint: 'Original text: Utah, key: 286326'
+            label: Text
+            name: '286326'
+            widget: string
+          - hint: 'Original text: Vermont, key: 782b10eb'
+            label: Text
+            name: 782b10eb
+            widget: string
+          - hint: 'Original text: Virginia, key: 6078b145'
+            label: Text
+            name: 6078b145
+            widget: string
+          - hint: 'Original text: Washington, key: 13fe41b0'
+            label: Text
+            name: 13fe41b0
+            widget: string
+          - hint: 'Original text: West Virginia, key: -6b586b8a'
+            label: Text
+            name: '-6b586b8a'
+            widget: string
+          - hint: 'Original text: Wisconsin, key: 71497317'
+            label: Text
+            name: '71497317'
+            widget: string
+          - hint: 'Original text: Wyoming, key: -30f8247e'
+            label: Text
+            name: '-30f8247e'
+            widget: string
+          - hint: 'Original text: Next ►, key: -751e5013'
+            label: Text
+            name: '-751e5013'
+            widget: string
+          - hint: 'Original text: Contact Information, key: 352a84ec'
+            label: Text
+            name: 352a84ec
+            widget: string
+          - hint: 'Original text: Full Name , key: -11706ddc'
+            label: Text
+            name: '-11706ddc'
+            widget: string
+          - hint: 'Original text: Email Address , key: -42920910'
+            label: Text
+            name: '-42920910'
+            widget: string
+          - hint: 'Original text: Phone Number (optional), key: -543f139a'
+            label: Text
+            name: '-543f139a'
+            widget: string
+          - hint: 'Original text: Preferred Contact Method , key: 73d84160'
+            label: Text
+            name: 73d84160
+            widget: string
+          - hint: 'Original text: Email, key: 3ff5b7c'
+            label: Text
+            name: 3ff5b7c
+            widget: string
+          - hint: 'Original text: Phone, key: 4984d4e'
+            label: Text
+            name: 4984d4e
+            widget: string
+          - hint: 'Original text: Video Call, key: 12d53b23'
+            label: Text
+            name: 12d53b23
+            widget: string
+          - hint: 'Original text: Your Company Role , key: -43e12846'
+            label: Text
+            name: '-43e12846'
+            widget: string
+          - hint: 'Original text: Owner, key: 4910293'
+            label: Text
+            name: '4910293'
+            widget: string
+          - hint: 'Original text: Marketing, key: 3fc9ea06'
+            label: Text
+            name: 3fc9ea06
+            widget: string
+          - hint: 'Original text: Contractor, key: -63f9016b'
+            label: Text
+            name: '-63f9016b'
+            widget: string
+          - hint: 'Original text: ◄ Back, key: 73a73de3'
+            label: Text
+            name: 73a73de3
+            widget: string
+          - hint: 'Original text: Project Details, key: 658dfffb'
+            label: Text
+            name: 658dfffb
+            widget: string
+          - hint: >-
+              Original text: What type of project are you starting? , key:
+              -3665396c
+            label: Text
+            name: '-3665396c'
+            widget: string
+          - hint: 'Original text: Website, key: -53cd8785'
+            label: Text
+            name: '-53cd8785'
+            widget: string
+          - hint: 'Original text: Branding & Website, key: 2635fbbc'
+            label: Text
+            name: 2635fbbc
+            widget: string
+          - hint: 'Original text: Graphic Design Project, key: -3107cf1'
+            label: Text
+            name: '-3107cf1'
+            widget: string
+          - hint: 'Original text: Logo Design, key: -1781ae2d'
+            label: Text
+            name: '-1781ae2d'
+            widget: string
+          - hint: 'Original text: Can you briefly explain the project? , key: 1aa83b8'
+            label: Text
+            name: 1aa83b8
+            widget: string
+          - hint: >-
+              Original text: Are there any specific assets/ services you would
+              like out of this project? (Select all that apply), key: 66d3892b
+            label: Text
+            name: 66d3892b
+            widget: text
+          - hint: 'Original text: Business Cards, key: -1dba38fd'
+            label: Text
+            name: '-1dba38fd'
+            widget: string
+          - hint: 'Original text: Digital Ads, key: -5a62a998'
+            label: Text
+            name: '-5a62a998'
+            widget: string
+          - hint: 'Original text: Print Ads, key: c3e407d'
+            label: Text
+            name: c3e407d
+            widget: string
+          - hint: 'Original text: Presentation Template, key: -6ca24140'
+            label: Text
+            name: '-6ca24140'
+            widget: string
+          - hint: 'Original text: Social Media Posts, key: -13d2ffbc'
+            label: Text
+            name: '-13d2ffbc'
+            widget: string
+          - hint: 'Original text: Custom Graphics, key: -7b0395a6'
+            label: Text
+            name: '-7b0395a6'
+            widget: string
+          - hint: 'Original text: Social Page Set Up, key: -1f46fe29'
+            label: Text
+            name: '-1f46fe29'
+            widget: string
+          - hint: 'Original text: Google Business Page Set Up, key: 51acc511'
+            label: Text
+            name: 51acc511
+            widget: string
+          - hint: >-
+              Original text: Do you have a budget for the project? , key:
+              5b93381a
+            label: Text
+            name: 5b93381a
+            widget: string
+          - hint: 'Original text: If yes, what is it?, key: -6bbbbb9e'
+            label: Text
+            name: '-6bbbbb9e'
+            widget: string
+          - hint: "Original text: Is there a deadline for this project?\_(If yes, please select the date), key: -28a5abbc"
+            label: Text
+            name: '-28a5abbc'
+            widget: string
+          - hint: 'Original text: Additional Information, key: 7f606ab3'
+            label: Text
+            name: 7f606ab3
+            widget: string
+          - hint: >-
+              Original text: Is there any additional information/ questions you
+              would like to add?, key: -48da29bd
+            label: Text
+            name: '-48da29bd'
+            widget: string
+          - hint: >-
+              Original text: Thank you for submitting your information! We're
+              excited to learn more about your business., key: -13854d9e
+            label: Text
+            name: '-13854d9e'
+            widget: text
+          - hint: >-
+              Original text: Please use the button below to schedule your free
+              discovery call. If you prefer to schedule at a later date, please
+              check your email for a scheduling link. Feel free to visit , key:
+              -52e476b7
+            label: Text
+            name: '-52e476b7'
+            widget: text
+          - hint: 'Original text: www.tripassdesign.com/schedule-call, key: 7fee9f7b'
+            label: Text
+            name: 7fee9f7b
+            widget: string
+          - hint: >-
+              Original text:  at any time to book a convenient time to meet. We
+              look forward to meeting you and discussing this potential project
+              further!, key: -1b616b5
+            label: Text
+            name: '-1b616b5'
+            widget: text
+          - hint: 'Original text: Schedule Your Free Call, key: -56298b72'
+            label: Text
+            name: '-56298b72'
+            widget: string
+          - hint: >-
+              Original text: Oops! It looks like Something went wrong while
+              submitting the form. If issues continue to persist, please feel
+              free to reach out to , key: -1d85ba27
+            label: Text
+            name: '-1d85ba27'
+            widget: text
+          - hint: 'Original text: bfuller@tripassdesign.com, key: 7b3bbd2b'
+            label: Text
+            name: 7b3bbd2b
+            widget: string
+          - hint: 'Original text: Our Most , key: 49a7ee9'
+            label: Text
+            name: 49a7ee9
+            widget: string
+          - hint: 'Original text: Recent, key: -6e54cd85'
+            label: Text
+            name: '-6e54cd85'
+            widget: string
+          - hint: 'Original text:  Posts, key: 3b369f93'
+            label: Text
+            name: 3b369f93
+            widget: string
+          - hint: 'Original text: Brand , key: 77141199'
+            label: Text
+            name: '77141199'
+            widget: string
+          - hint: 'Original text: Identity, key: -43d2b22'
+            label: Text
+            name: '-43d2b22'
+            widget: string
+          - hint: 'Original text:  Project, key: 4cee7ed9'
+            label: Text
+            name: 4cee7ed9
+            widget: string
+          - hint: 'Original text: Website , key: -25e368fb'
+            label: Text
+            name: '-25e368fb'
+            widget: string
+          - hint: 'Original text: Graphic , key: 9db0e58'
+            label: Text
+            name: 9db0e58
+            widget: string
+          - hint: 'Original text:  Projects, key: 50e15cba'
+            label: Text
+            name: 50e15cba
+            widget: string
+          - hint: 'Original text: Check out , key: 547306ca'
+            label: Text
+            name: 547306ca
+            widget: string
+          - hint: 'Original text: more, key: 333b55'
+            label: Text
+            name: 333b55
+            widget: string
+          - hint: 'Original text:  projects, key: 4d06f89a'
+            label: Text
+            name: 4d06f89a
+            widget: string
+          - hint: 'Original text: See Project, key: 730de00c'
+            label: Text
+            name: 730de00c
+            widget: string
+          - hint: 'Original text: Branding , key: 488eb465'
+            label: Text
+            name: 488eb465
+            widget: string
+          - hint: 'Original text: Packages, key: 309bb90d'
+            label: Text
+            name: 309bb90d
+            widget: string
+          - hint: 'Original text: Lite Package, key: -45eb212c'
+            label: Text
+            name: '-45eb212c'
+            widget: string
+          - hint: 'Original text: $1000, key: 2124e83'
+            label: Text
+            name: '2124e83'
+            widget: string
+          - hint: 'Original text: Total value of , key: -6b39e402'
+            label: Text
+            name: '-6b39e402'
+            widget: string
+          - hint: 'Original text: $1500, key: 2126148'
+            label: Text
+            name: '2126148'
+            widget: string
+          - hint: >-
+              Original text: We collaborate with you to create a custom logo
+              that reflects your brand’s unique personality., key: 62edc0c3
+            label: Text
+            name: 62edc0c3
+            widget: text
+          - hint: 'Original text: Visual Brand Identity, key: -4c9619c9'
+            label: Text
+            name: '-4c9619c9'
+            widget: string
+          - hint: >-
+              Original text: Our package includes a responsive logo kit,
+              selected typography, a cohesive color palette, icon design, and
+              additional visual elements to establish a distinctive brand
+              identity., key: -381cb54c
+            label: Text
+            name: '-381cb54c'
+            widget: text
+          - hint: 'Original text: Digital Brand Styleguide, key: -16c99074'
+            label: Text
+            name: '-16c99074'
+            widget: string
+          - hint: >-
+              Original text: Receive a digital brand style guide to maintain
+              consistent brand identity across all mediums and touchpoints.,
+              key: 2845d61c
+            label: Text
+            name: 2845d61c
+            widget: text
+          - hint: 'Original text: Business Card Design, key: 4470b08e'
+            label: Text
+            name: 4470b08e
+            widget: string
+          - hint: >-
+              Original text: We design branded business cards and letterhead
+              that leave a lasting impression, ensuring your business stands out
+              in every interaction., key: -512889b5
+            label: Text
+            name: '-512889b5'
+            widget: text
+          - hint: 'Original text: Social Media Kit, key: 7fd88b87'
+            label: Text
+            name: 7fd88b87
+            widget: string
+          - hint: >-
+              Original text: Enhance your social media presence with a custom
+              profile image, one branded cover image, and two post templates
+              designed to showcase your new brand., key: 44c57d8c
+            label: Text
+            name: 44c57d8c
+            widget: text
+          - hint: >-
+              Original text: We create tailored digital or print graphics that
+              align perfectly with your brand’s aesthetic, enhancing your visual
+              communication., key: 6b98153d
+            label: Text
+            name: 6b98153d
+            widget: text
+          - hint: 'Original text: Brand Strategy Development, key: -352780d9'
+            label: Text
+            name: '-352780d9'
+            widget: string
+          - hint: >-
+              Original text: Develop a comprehensive brand strategy with us,
+              including a clear vision, mission, core values, and strategic
+              objectives to guide your brand's growth., key: 2474a5df
+            label: Text
+            name: 2474a5df
+            widget: text
+          - hint: 'Original text: In-Depth Brand Audit, key: -35b7c2c3'
+            label: Text
+            name: '-35b7c2c3'
+            widget: string
+          - hint: >-
+              Original text: Our four-point brand audit evaluates your internal
+              and external branding, customer experience, and competitor
+              dynamics to identify strengths and areas for improvement., key:
+              -622fceee
+            label: Text
+            name: '-622fceee'
+            widget: text
+          - hint: 'Original text: Pro Package, key: -36e43a6d'
+            label: Text
+            name: '-36e43a6d'
+            widget: string
+          - hint: 'Original text: $2500, key: 212d5a7'
+            label: Text
+            name: 212d5a7
+            widget: string
+          - hint: 'Original text: $3500, key: 2134a06'
+            label: Text
+            name: 2134a06
+            widget: string
+          - hint: 'Original text: 1 Custom Graphic, key: -f3c02f8'
+            label: Text
+            name: '-f3c02f8'
+            widget: string
+          - hint: 'Original text: Most Popular, key: 137b833c'
+            label: Text
+            name: 137b833c
+            widget: string
+          - hint: 'Original text: Business Package, key: 16d0abe6'
+            label: Text
+            name: 16d0abe6
+            widget: string
+          - hint: 'Original text: $4000, key: 213aba0'
+            label: Text
+            name: 213aba0
+            widget: string
+          - hint: 'Original text: $6200, key: 2149be0'
+            label: Text
+            name: 2149be0
+            widget: string
+          - hint: 'Original text: 2 Custom Graphics, key: 7865826c'
+            label: Text
+            name: 7865826c
+            widget: string
+          - hint: >-
+              Original text: When you choose to purchase multiple packages
+              simultaneously, you'll receive an exclusive 20% discount on each
+              additional package. This offer applies to any combination of our
+              website or branding packages. Additionally, as a token of our
+              appreciation for their service, veterans and first responders
+              receive a 10% discount on all our services., key: 7e24c8b2
+            label: Text
+            name: 7e24c8b2
+            widget: text
+          - hint: >-
+              Original text: Experience the freedom of 100% custom website
+              design. We craft your site from the ground up, using no templates,
+              to ensure a unique and tailored online presence that stands out
+              from the competition., key: -331d882b
+            label: Text
+            name: '-331d882b'
+            widget: text
+          - hint: 'Original text: Up to 2 Unique Pages, key: -45a171fd'
+            label: Text
+            name: '-45a171fd'
+            widget: string
+          - hint: >-
+              Original text: This classification applies to any page that
+              diverges in structure from others, providing a varied and dynamic
+              user experience., key: -393e5be2
+            label: Text
+            name: '-393e5be2'
+            widget: text
+          - hint: >-
+              Original text: We build sleek, functional websites using Webflow.
+              This modern platform allows us to develop responsive,
+              high-performing sites that are as beautiful as they are
+              effective., key: -713d4f42
+            label: Text
+            name: '-713d4f42'
+            widget: text
+          - hint: 'Original text: Google Business Analytics, key: 7711e04d'
+            label: Text
+            name: 7711e04d
+            widget: string
+          - hint: >-
+              Original text: We set up and integrate analytics to help you track
+              visitor behavior, providing valuable insights to optimize your
+              website and marketing strategies., key: -4ecabbf6
+            label: Text
+            name: '-4ecabbf6'
+            widget: text
+          - hint: 'Original text: Google Business Page Set-up, key: 51acf9be'
+            label: Text
+            name: 51acf9be
+            widget: string
+          - hint: >-
+              Original text: Included for free with our Pro and Business
+              packages, or add it to any other package for $100., key: 24769a30
+            label: Text
+            name: 24769a30
+            widget: text
+          - hint: "Original text: CMS\_DEvelopment, key: 647a0c44"
+            label: Text
+            name: 647a0c44
+            widget: string
+          - hint: >-
+              Original text: Whether it’s team members, services, or portfolio
+              collections, we create a user-friendly CMS that simplifies updates
+              and maintenance., key: -56aaf0cb
+            label: Text
+            name: '-56aaf0cb'
+            widget: text
+          - hint: 'Original text: Free Site Transfer, key: -78ed19f0'
+            label: Text
+            name: '-78ed19f0'
+            widget: string
+          - hint: >-
+              Original text: Our site transfer service seamlessly moves your
+              website to Shopify, WordPress, Ghost, or Netlify. This service is
+              included for free in our Business package, or available as an
+              add-on for $200 with other packages., key: -34f09ef1
+            label: Text
+            name: '-34f09ef1'
+            widget: text
+          - hint: 'Original text: $3000, key: 2133741'
+            label: Text
+            name: '2133741'
+            widget: string
+          - hint: "Original text: 2 CMS\_Collections, key: 5cf7d090"
+            label: Text
+            name: 5cf7d090
+            widget: string
+          - hint: 'Original text: $5000, key: 2141fff'
+            label: Text
+            name: 2141fff
+            widget: string
+          - hint: 'Original text: See Full Project, key: -6d60d2ab'
+            label: Text
+            name: '-6d60d2ab'
+            widget: string
+          - hint: 'Original text: See More Of our work, key: 20eaaf90'
+            label: Text
+            name: 20eaaf90
+            widget: string
+          - hint: 'Original text: Frequently , key: -4787217b'
+            label: Text
+            name: '-4787217b'
+            widget: string
+          - hint: 'Original text: Asked Questions, key: -3f13243b'
+            label: Text
+            name: '-3f13243b'
+            widget: string
+          - hint: 'Original text: How much do your services cost?, key: -697de635'
+            label: Text
+            name: '-697de635'
+            widget: string
+          - hint: >-
+              Original text: Our service costs vary depending on the specific
+              needs and scope of your project. We offer a range of packages and
+              options to fit different budgets and requirements. For detailed
+              information on pricing and to find the right solution for your
+              business, please visit our , key: 7ca22ef3
+            label: Text
+            name: 7ca22ef3
+            widget: text
+          - hint: "Original text: Services &\_Pricing , key: 2ae7b156"
+            label: Text
+            name: 2ae7b156
+            widget: string
+          - hint: 'Original text: page., key: 657ef7f'
+            label: Text
+            name: 657ef7f
+            widget: string
+          - hint: >-
+              Original text: How long does it take to complete a Project?, key:
+              8b7dc7e
+            label: Text
+            name: 8b7dc7e
+            widget: string
+          - hint: >-
+              Original text: Turnaround times can vary depending on the
+              complexity and scope of the project. During our initial
+              consultation, we'll provide you with a clear timeline based on
+              your project requirements and our current workload. Rest assured,
+              we strive to deliver high-quality work within reasonable
+              timeframes to ensure your brand gets the attention it deserves.,
+              key: 67af8111
+            label: Text
+            name: 67af8111
+            widget: text
+          - hint: 'Original text: ready , key: -37baa523'
+            label: Text
+            name: '-37baa523'
+            widget: string
+          - hint: 'Original text: to elevate your brand?, key: 4da749da'
+            label: Text
+            name: 4da749da
+            widget: string
+          - hint: 'Original text:  packages, key: -4ab0caf3'
+            label: Text
+            name: '-4ab0caf3'
+            widget: string
+          - hint: 'Original text: Check Out Our Work, key: -2bfd7f71'
+            label: Text
+            name: '-2bfd7f71'
+            widget: string
+          - hint: 'Original text: Branding Packages, key: -57c9c78e'
+            label: Text
+            name: '-57c9c78e'
+            widget: string
+          - hint: 'Original text: Website Packages, key: 71877b12'
+            label: Text
+            name: 71877b12
+            widget: string
+          - hint: 'Original text: Single Services, key: 6af3d936'
+            label: Text
+            name: 6af3d936
+            widget: string
+          - hint: 'Original text: More Information, key: 4c6cf0e1'
+            label: Text
+            name: 4c6cf0e1
+            widget: string
+          - hint: >-
+              Original text: iDENTIFY YOUR BRANDS PURPOSE & VISION, key:
+              -511f2a61
+            label: Text
+            name: '-511f2a61'
+            widget: string
+          - hint: >-
+              Original text: Everything great starts with a clear vision. We
+              begin by diving deep into understanding what drives your business,
+              identifying your core purpose, and envisioning where you want your
+              brand to be. This crucial step sets the foundation for a brand
+              that truly represents your ambitions and resonates with your
+              audience., key: 4424f558
+            label: Text
+            name: 4424f558
+            widget: text
+          - hint: "Original text: dEVELOP yOUR bRAND sTRATEGY &\_pERSONALITY , key: -5f36422a"
+            label: Text
+            name: '-5f36422a'
+            widget: string
+          - hint: >-
+              Original text: With your brand's purpose and vision outlined, we
+              craft a comprehensive brand strategy that includes defining your
+              brand's personality, voice, and positioning. This strategy will
+              guide all decisions, ensuring that your brand communicates
+              consistently and effectively with your target audience., key:
+              -4da904e5
+            label: Text
+            name: '-4da904e5'
+            widget: text
+          - hint: 'Original text: cREATE yOUR bRANDS vISUAL iDENTITY, key: 3f286493'
+            label: Text
+            name: 3f286493
+            widget: string
+          - hint: >-
+              Original text: Once the strategic framework is set, we bring your
+              brand to life visually. This involves designing a distinctive
+              logo, selecting a harmonious color palette, and establishing a
+              cohesive style guide. Our goal is to create a visual identity that
+              captivates and engages, making a memorable impression on your
+              customers., key: -1f4c973b
+            label: Text
+            name: '-1f4c973b'
+            widget: text
+          - hint: 'Original text: bUILD TRUST THROUGH CONSISTENCY, key: -23c001d'
+            label: Text
+            name: '-23c001d'
+            widget: string
+          - hint: >-
+              Original text: Consistency is key to building trust. We ensure
+              that every touchpoint with your audience — from marketing
+              materials to digital presence — aligns with your established brand
+              identity. This consistent representation helps to build
+              credibility and trust with your audience, fostering long-term
+              loyalty., key: 151ceb88
+            label: Text
+            name: 151ceb88
+            widget: text
+          - hint: 'Original text: $2200, key: 212ca64'
+            label: Text
+            name: 212ca64
+            widget: string
+          - hint: 'Original text: $4500, key: 213be65'
+            label: Text
+            name: 213be65
+            widget: string
+          - hint: 'Original text: Up to 6 Unique Pages, key: 41d5b47f'
+            label: Text
+            name: 41d5b47f
+            widget: string
+          - hint: 'Original text: $7000, key: 21508bd'
+            label: Text
+            name: 21508bd
+            widget: string
+          - hint: 'Original text: Up to 10+ Unique Pages, key: 2a736689'
+            label: Text
+            name: 2a736689
+            widget: string
+          - hint: 'Original text: iDENTIFY yOUR WEBSITES PURPOSE, key: -49d285b1'
+            label: Text
+            name: '-49d285b1'
+            widget: string
+          - hint: >-
+              Original text: Every successful website begins with a clear
+              purpose. We start by understanding the core objectives of your
+              online presence — whether to inform, engage, sell, or more. This
+              initial step ensures that the entire website strategy aligns with
+              your business goals and meets the needs of your audience., key:
+              -74963eed
+            label: Text
+            name: '-74963eed'
+            widget: text
+          - hint: 'Original text: dEVELOP AN UNFORGETTABLE JOURNEY, key: 2d80c1d8'
+            label: Text
+            name: 2d80c1d8
+            widget: string
+          - hint: >-
+              Original text: Creating an engaging user journey is crucial. We
+              map out a user-friendly navigation structure and design
+              interactive elements to guide visitors through your website
+              effortlessly. This process is designed to captivate your audience
+              and keep them engaged from the first click to the final call to
+              action., key: -ed01c2
+            label: Text
+            name: '-ed01c2'
+            widget: text
+          - hint: >-
+              Original text: Building Your BRAnd's custom WEBSITE, key:
+              -22d9b126
+            label: Text
+            name: '-22d9b126'
+            widget: string
+          - hint: >-
+              Original text: With a solid plan in place, we proceed to build
+              your custom website. Our team combines aesthetic design with
+              functional excellence to develop a website that not only looks
+              stunning but also performs seamlessly. Tailored to reflect your
+              brand’s identity, your site will be a true one-of-a-kind digital
+              platform., key: 46ac77fd
+            label: Text
+            name: 46ac77fd
+            widget: text
+          - hint: 'Original text: Enhancing Your Customer''s Experience, key: 3bc60b28'
+            label: Text
+            name: 3bc60b28
+            widget: string
+          - hint: >-
+              Original text: We believe that a great website continually
+              evolves. After launch, we focus on enhancing the user experience
+              based on real-world feedback and analytics. From improving
+              accessibility to optimizing load times, we ensure your site
+              remains effective, enjoyable, and easy to use for everyone., key:
+              7cc47c1c
+            label: Text
+            name: 7cc47c1c
+            widget: text
+          - hint: 'Original text: Single , key: -1fef6348'
+            label: Text
+            name: '-1fef6348'
+            widget: string
+          - hint: >-
+              Original text: We help you define your vision, mission, and core
+              values, and craft a plan that positions your brand effectively in
+              your market., key: -550fa592
+            label: Text
+            name: '-550fa592'
+            widget: text
+          - hint: 'Original text: $500, key: 112a51'
+            label: Text
+            name: 112a51
+            widget: string
+          - hint: 'Original text: lOGO dESIGN, key: -5403da2d'
+            label: Text
+            name: '-5403da2d'
+            widget: string
+          - hint: >-
+              Original text: Our logos are crafted to be distinctive and
+              resonant, providing you with a foundational element of your brand
+              identity., key: -5c723397
+            label: Text
+            name: '-5c723397'
+            widget: text
+          - hint: 'Original text: vISUAL iDENTITY, key: -4b06ae62'
+            label: Text
+            name: '-4b06ae62'
+            widget: string
+          - hint: >-
+              Original text: Our service includes the development of a color
+              palette, typography, and other visual elements that ensure brand
+              recognition and consistency., key: 52dd1d83
+            label: Text
+            name: 52dd1d83
+            widget: text
+          - hint: 'Original text: Brand sTYLEgUIDE, key: -74b855bc'
+            label: Text
+            name: '-74b855bc'
+            widget: string
+          - hint: >-
+              Original text: This document outlines your brand’s design
+              standards, from logos and color usage to typography and imagery,
+              ensuring uniformity in all your communications., key: 576b4b27
+            label: Text
+            name: 576b4b27
+            widget: text
+          - hint: 'Original text: $200, key: 111f0e'
+            label: Text
+            name: 111f0e
+            widget: string
+          - hint: 'Original text: sOCIAL mEDIA kIT, key: -70fabc79'
+            label: Text
+            name: '-70fabc79'
+            widget: string
+          - hint: >-
+              Original text: Elevate your social media presence with our social
+              media kit, which includes three custom social media posts and one
+              cover photo design., key: -662d93ff
+            label: Text
+            name: '-662d93ff'
+            widget: text
+          - hint: 'Original text: pRINT gRAPHICS, key: -5835e182'
+            label: Text
+            name: '-5835e182'
+            widget: string
+          - hint: >-
+              Original text: From brochures to business cards and banners, we
+              provide designed print solutions that communicate your brand's
+              message effectively and attractively., key: -7d468af6
+            label: Text
+            name: '-7d468af6'
+            widget: text
+          - hint: 'Original text: dIGITAL gRAPHICS, key: -810f08d'
+            label: Text
+            name: '-810f08d'
+            widget: string
+          - hint: >-
+              Original text: Whether it's for your website, digital advertising,
+              or email campaigns, our graphics are designed to make an impact
+              and drive engagement., key: -53cc3ba9
+            label: Text
+            name: '-53cc3ba9'
+            widget: text
+          - hint: 'Original text: $700, key: 1131d3'
+            label: Text
+            name: 1131d3
+            widget: string
+          - hint: 'Original text: vEHICLE wRAP dESIGN, key: 78f68760'
+            label: Text
+            name: 78f68760
+            widget: string
+          - hint: >-
+              Original text: We create eye-catching designs that not only raise
+              awareness of your brand but also reinforce your market presence
+              every time you hit the road., key: -40127ef6
+            label: Text
+            name: '-40127ef6'
+            widget: text
+          - hint: 'Original text: $2000, key: 212c2e2'
+            label: Text
+            name: 212c2e2
+            widget: string
+          - hint: 'Original text: bRAND aUDIT, key: -2bb015fe'
+            label: Text
+            name: '-2bb015fe'
+            widget: string
+          - hint: >-
+              Original text: We examine your internal and external branding,
+              customer experience, and competitor analysis to provide actionable
+              insights that enhance your brand strategy., key: -7b31f754
+            label: Text
+            name: '-7b31f754'
+            widget: text
+          - hint: 'Original text: Schedule A , key: 6de6fa08'
+            label: Text
+            name: 6de6fa08
+            widget: string
+          - hint: 'Original text: Free, key: 218a8c'
+            label: Text
+            name: 218a8c
+            widget: string
+          - hint: 'Original text:  Call, key: 1e2de9e'
+            label: Text
+            name: 1e2de9e
+            widget: string
+          - hint: >-
+              Original text: Schedule Call • Schedule Call • Schedule Call •
+              Schedule Call • Schedule Call • Schedule Call • Schedule Call •
+              Schedule Call • Schedule Call • Schedule Call • Schedule Call •
+              Schedule Call • Schedule Call •, key: -18b0768b
+            label: Text
+            name: '-18b0768b'
+            widget: text
+          - hint: 'Original text: Let''s Start a Project, key: 754a4623'
+            label: Text
+            name: 754a4623
+            widget: string
+          - hint: 'Original text: Terms of , key: -ec97910'
+            label: Text
+            name: '-ec97910'
+            widget: string
+          - hint: 'Original text: Service, key: -2683a16b'
+            label: Text
+            name: '-2683a16b'
+            widget: string
+          - hint: >-
+              Original text: Welcome to the Tripass Design website (the “Site”).
+              These terms and conditions (“Terms”) govern your use of the Site
+              and any services or features available through the Site. By
+              accessing or using the Site, you agree to be bound by these Terms.
+              If you do not agree to these Terms, please do not use the Site.,
+              key: -14f22aa
+            label: Text
+            name: '-14f22aa'
+            widget: text
+          - hint: 'Original text: Use of the Site, key: 730aca6'
+            label: Text
+            name: 730aca6
+            widget: string
+          - hint: >-
+              Original text: You may use the Site only for lawful purposes and
+              in accordance with these Terms. By using the Site, you agree not
+              to:, key: 68d35aab
+            label: Text
+            name: 68d35aab
+            widget: text
+          - hint: >-
+              Original text: Violate any applicable federal, state, local, or
+              international law or regulation;, key: -2fabb8fb
+            label: Text
+            name: '-2fabb8fb'
+            widget: string
+          - hint: >-
+              Original text: Transmit or procure the sending of any advertising
+              or promotional material, including any “junk mail,” “chain
+              letter,” or “spam,” or any other similar solicitation;, key:
+              29ec0e92
+            label: Text
+            name: 29ec0e92
+            widget: text
+          - hint: >-
+              Original text: Impersonate or attempt to impersonate Tripass
+              Design, a Tripass Design employee, another user, or any other
+              person or entity;, key: 301c0da9
+            label: Text
+            name: 301c0da9
+            widget: text
+          - hint: >-
+              Original text: Engage in any conduct that restricts or inhibits
+              anyone’s use or enjoyment of the Site or may harm Tripass Design
+              or users of the Site, as determined by Tripass Design., key:
+              6ed1d76f
+            label: Text
+            name: 6ed1d76f
+            widget: text
+          - hint: 'Original text: User Content, key: 7040ad24'
+            label: Text
+            name: 7040ad24
+            widget: string
+          - hint: >-
+              Original text: The Site may allow you to submit, upload, publish,
+              or otherwise make available text, images, graphics, audio, video,
+              or other material (“User Content”). You retain all rights in, and
+              are solely responsible for, the User Content you submit., key:
+              -38eb93b8
+            label: Text
+            name: '-38eb93b8'
+            widget: text
+          - hint: >-
+              Original text: By submitting User Content, you grant Tripass
+              Design a non-exclusive, worldwide, royalty-free, sublicensable,
+              and transferable license to use, reproduce, distribute, prepare
+              derivative works of, display, and perform the User Content in
+              connection with the Site and Tripass Design’s business. This
+              includes promoting and redistributing part or all of the Site (and
+              derivative works thereof) in any media formats and through any
+              media channels., key: -1aee9dd1
+            label: Text
+            name: '-1aee9dd1'
+            widget: text
+          - hint: 'Original text: You represent and warrant that:, key: -767fb972'
+            label: Text
+            name: '-767fb972'
+            widget: string
+          - hint: >-
+              Original text: You either are the sole and exclusive owner of all
+              User Content or have all necessary rights, licenses, consents, and
+              releases to grant Tripass Design the rights in such User Content
+              as contemplated under these Terms., key: -568b2cb1
+            label: Text
+            name: '-568b2cb1'
+            widget: text
+          - hint: >-
+              Original text: Neither the User Content nor its submission,
+              uploading, publishing, or availability infringes, misappropriates,
+              or violates any third party's intellectual property rights or any
+              applicable law or regulation., key: -601a30f9
+            label: Text
+            name: '-601a30f9'
+            widget: text
+          - hint: >-
+              Original text: Tripass Design reserves the right to remove or
+              modify any User Content for any reason, including User Content
+              that violates these Terms or is otherwise objectionable., key:
+              -7996da70
+            label: Text
+            name: '-7996da70'
+            widget: text
+          - hint: 'Original text: Intellectual Property Rights, key: -d3fdf9e'
+            label: Text
+            name: '-d3fdf9e'
+            widget: string
+          - hint: >-
+              Original text: The Site and its entire contents, features, and
+              functionality are owned by Tripass Design, its licensors, or other
+              providers of such material and are protected by United States and
+              international copyright, trademark, patent, trade secret, and
+              other intellectual property or proprietary rights laws., key:
+              6ca2b5d9
+            label: Text
+            name: 6ca2b5d9
+            widget: text
+          - hint: >-
+              Original text: These Terms permit you to use the Site for your
+              personal, non-commercial use only. You must not reproduce,
+              distribute, modify, create derivative works of, publicly display
+              or perform, republish, download, store, or transmit any material
+              on our Site without prior written permission., key: 7a3f7f1d
+            label: Text
+            name: 7a3f7f1d
+            widget: text
+          - hint: >-
+              Original text: You may temporarily store copies of materials in
+              RAM and cache them for display enhancement purposes. You may also
+              print or download one copy of a reasonable number of pages from
+              the Site for your personal, non-commercial use and not for further
+              reproduction, publication, or distribution., key: 290bf290
+            label: Text
+            name: 290bf290
+            widget: text
+          - hint: >-
+              Original text: If you wish to make any use of material on the Site
+              beyond what is permitted by these Terms, please address your
+              request to the contact information provided in the Contact Us
+              section of the Site., key: 3b2cfab3
+            label: Text
+            name: 3b2cfab3
+            widget: text
+          - hint: 'Original text: Links to Third-Party Websites, key: -72fda64a'
+            label: Text
+            name: '-72fda64a'
+            widget: string
+          - hint: >-
+              Original text: The Site may contain links to third-party websites
+              or resources. These links are provided for your convenience only
+              and do not imply any endorsement by Tripass Design of the linked
+              websites or resources, their content, products, or services., key:
+              673a628b
+            label: Text
+            name: 673a628b
+            widget: text
+          - hint: >-
+              Original text: You acknowledge and agree that Tripass Design is
+              not responsible or liable for the availability, accuracy, content,
+              or policies of third-party websites or resources. You further
+              acknowledge and agree that Tripass Design shall not be responsible
+              or liable, directly or indirectly, for any damage or loss caused
+              or alleged to be caused by or in connection with the use of or
+              reliance on any such content, goods, or services available on or
+              through any such website or resource., key: 3991af16
+            label: Text
+            name: 3991af16
+            widget: text
+          - hint: 'Original text: Disclaimer of Warranties, key: 4f9dcefe'
+            label: Text
+            name: 4f9dcefe
+            widget: string
+          - hint: >-
+              Original text: The Site is provided on an "as is" and "as
+              available" basis, without any warranties of any kind, whether
+              express or implied. Tripass Design disclaims all warranties,
+              express or implied, including but not limited to, implied
+              warranties of merchantability, fitness for a particular purpose,
+              and non-infringement. Tripass Design does not warrant that the
+              Site will be uninterrupted, error-free, or secure, or that any
+              defects or errors will be corrected., key: -77660581
+            label: Text
+            name: '-77660581'
+            widget: text
+          - hint: 'Original text: Limitation of Liability, key: -516147f6'
+            label: Text
+            name: '-516147f6'
+            widget: string
+          - hint: >-
+              Original text: In no event shall Tripass Design, its officers,
+              directors, employees, or agents be liable to you or any third
+              party for any indirect, consequential, incidental, special, or
+              punitive damages arising out of or in connection with your use of
+              the Site, even if Tripass Design has been advised of the
+              possibility of such damages., key: 7177e456
+            label: Text
+            name: '7177e456'
+            widget: text
+          - hint: 'Original text: Indemnification, key: -2d39da69'
+            label: Text
+            name: '-2d39da69'
+            widget: string
+          - hint: >-
+              Original text: You agree to indemnify, defend, and hold harmless
+              Tripass Design, its affiliates, officers, directors, employees,
+              agents, and licensors from and against any and all claims,
+              liabilities, damages, losses, costs, and expenses (including
+              reasonable attorneys' fees) arising out of or in connection with
+              your use of the Site, your violation of these Terms, or your
+              violation of any rights of another., key: -49117221
+            label: Text
+            name: '-49117221'
+            widget: text
+          - hint: 'Original text: Termination, key: -ef1911c'
+            label: Text
+            name: '-ef1911c'
+            widget: string
+          - hint: >-
+              Original text: Tripass Design may, in its sole discretion,
+              terminate or suspend your access to all or part of the Site for
+              any reason, including, without limitation, any violation of these
+              Terms. Upon termination, your right to use the Site will
+              immediately cease. Any provisions of these Terms that, by their
+              nature, should survive termination, shall survive, including but
+              not limited to, the disclaimers, limitations of liability,
+              indemnification, and intellectual property provisions., key:
+              1216fc53
+            label: Text
+            name: 1216fc53
+            widget: text
+          - hint: 'Original text: Governing Law and Jurisdiction, key: 790dd0d9'
+            label: Text
+            name: 790dd0d9
+            widget: string
+          - hint: >-
+              Original text: These Terms shall be governed by and construed in
+              accordance with the laws of the state of Arizona, United States,
+              without regard to its conflict of laws principles. Any legal
+              action or proceeding arising out of or relating to these Terms or
+              the use of the Site shall be exclusively brought in the state or
+              federal courts located in Arizona, and you consent to the personal
+              jurisdiction of such courts., key: -2387544
+            label: Text
+            name: '-2387544'
+            widget: text
+          - hint: 'Original text: Changes to the Terms, key: -2152a010'
+            label: Text
+            name: '-2152a010'
+            widget: string
+          - hint: >-
+              Original text: Tripass Design reserves the right, at its sole
+              discretion, to modify or replace these Terms at any time. It is
+              your responsibility to review these Terms periodically for any
+              changes. Your continued use of the Site following the posting of
+              any changes to these Terms constitutes acceptance of those
+              changes., key: -64569f60
+            label: Text
+            name: '-64569f60'
+            widget: text
+          - hint: 'Original text: Waiver and Severability, key: 513c5fde'
+            label: Text
+            name: 513c5fde
+            widget: string
+          - hint: >-
+              Original text: The failure of Tripass Design to enforce any right
+              or provision of these Terms shall not be deemed a waiver of such
+              right or provision. If any provision of these Terms is held to be
+              invalid or unenforceable, the remaining provisions of these Terms
+              will remain in full force and effect., key: 21bc3099
+            label: Text
+            name: 21bc3099
+            widget: text
+          - hint: >-
+              Original text: If you have any questions or concerns about these
+              Terms or the Site, please contact us at , key: -40c67972
+            label: Text
+            name: '-40c67972'
+            widget: string
+          - hint: >-
+              Original text:  or through the contact information provided in the
+              Contact Us section of the Site., key: -5e18165c
+            label: Text
+            name: '-5e18165c'
+            widget: string
+          - hint: >-
+              Original text: By using the Tripass Design website, you
+              acknowledge that you have read, understood, and agree to be bound
+              by these Terms and any other agreements or policies referenced
+              herein., key: -5f23ea88
+            label: Text
+            name: '-5f23ea88'
+            widget: text
+          - hint: 'Original text: Cookie , key: -640625e4'
+            label: Text
+            name: '-640625e4'
+            widget: string
+          - hint: >-
+              Original text: This Cookie Policy explains how Tripass Design
+              ("we," "us," or "our") uses cookies and similar technologies on
+              our website (the "Site"). By using the Site, you consent to the
+              use of cookies and other tracking technologies as described in
+              this policy., key: 35767a77
+            label: Text
+            name: 35767a77
+            widget: text
+          - hint: 'Original text: What are Cookies?, key: 46f03bb8'
+            label: Text
+            name: 46f03bb8
+            widget: string
+          - hint: >-
+              Original text: Cookies are small text files that are stored on
+              your device (computer, smartphone, or tablet) when you visit a
+              website. They are widely used to make websites work or improve
+              their efficiency, as well as to provide website owners with
+              information about how their site is being used., key: 78557714
+            label: Text
+            name: '78557714'
+            widget: text
+          - hint: 'Original text: Types of Cookies We Use, key: -762ae698'
+            label: Text
+            name: '-762ae698'
+            widget: string
+          - hint: >-
+              Original text: Essential Cookies: These cookies are necessary for
+              the proper functioning of our Site. They enable you to navigate
+              our Site and use its features, such as accessing secure areas of
+              the site., key: 4793769f
+            label: Text
+            name: 4793769f
+            widget: text
+          - hint: >-
+              Original text: Analytics Cookies: We use analytics cookies to
+              collect information about how visitors use our Site. This helps us
+              analyze and improve the performance of our Site and understand
+              which pages are most popular., key: 21b6cfaa
+            label: Text
+            name: 21b6cfaa
+            widget: text
+          - hint: >-
+              Original text: Advertising Cookies: These cookies are used to
+              deliver relevant advertisements to you and measure the
+              effectiveness of our advertising campaigns. They track your
+              browsing habits and enable us to show you targeted ads based on
+              your interests., key: -2a86fe96
+            label: Text
+            name: '-2a86fe96'
+            widget: text
+          - hint: >-
+              Original text: Functionality Cookies: Functionality cookies allow
+              our Site to remember choices you make and provide enhanced
+              features. For example, they may remember your username, language
+              preference, or region., key: -2d4bfa80
+            label: Text
+            name: '-2d4bfa80'
+            widget: text
+          - hint: >-
+              Original text: Social Media Cookies: Our Site may include social
+              media features or plugins that allow you to share content or
+              interact with social media platforms. These features may set
+              cookies on your device to track your interaction., key: 12632da
+            label: Text
+            name: 12632da
+            widget: text
+          - hint: 'Original text: Managing Cookies, key: -4c8d52af'
+            label: Text
+            name: '-4c8d52af'
+            widget: string
+          - hint: >-
+              Original text: You can control and manage cookies in various ways.
+              Most web browsers allow you to accept or reject cookies, delete
+              cookies already stored on your device, or notify you when a cookie
+              is being placed., key: -6fa1ec1e
+            label: Text
+            name: '-6fa1ec1e'
+            widget: text
+          - hint: >-
+              Original text: Please note that if you choose to disable or delete
+              cookies, some parts of our Site may not function properly or may
+              be inaccessible., key: 2a917e17
+            label: Text
+            name: 2a917e17
+            widget: text
+          - hint: 'Original text: Third-Party Cookies, key: -33a8c6f1'
+            label: Text
+            name: '-33a8c6f1'
+            widget: string
+          - hint: >-
+              Original text: We may also allow third-party service providers to
+              place cookies on our Site to enable certain features or provide
+              analytics and advertising services. These third-party cookies are
+              subject to the respective privacy policies of those providers.,
+              key: -2cc440a3
+            label: Text
+            name: '-2cc440a3'
+            widget: text
+          - hint: 'Original text: Your Consent, key: -7ff4ead3'
+            label: Text
+            name: '-7ff4ead3'
+            widget: string
+          - hint: >-
+              Original text: By continuing to use our Site, you consent to the
+              placement of cookies and similar technologies on your device as
+              described in this Cookie Policy. If you do not agree to the use of
+              cookies, you should adjust your browser settings or refrain from
+              using our Site., key: 22bcab1b
+            label: Text
+            name: 22bcab1b
+            widget: text
+          - hint: 'Original text: Changes to this Cookie Policy, key: 1ba9c874'
+            label: Text
+            name: 1ba9c874
+            widget: string
+          - hint: >-
+              Original text: We reserve the right to modify or update this
+              Cookie Policy at any time. Any changes will be effective
+              immediately upon posting the updated policy on our Site. We
+              encourage you to review this policy periodically to stay informed
+              about how we use cookies., key: -4764d8ca
+            label: Text
+            name: '-4764d8ca'
+            widget: text
+          - hint: >-
+              Original text: If you have any questions or concerns about our use
+              of cookies or this Cookie Policy, please contact us at , key:
+              -3ecfb34d
+            label: Text
+            name: '-3ecfb34d'
+            widget: text
+          - hint: >-
+              Original text: By using our Site, you acknowledge that you have
+              read and understood this Cookie Policy and consent to the use of
+              cookies and similar technologies as described herein., key:
+              -212ad27b
+            label: Text
+            name: '-212ad27b'
+            widget: text
+          - hint: 'Original text: Protected Page, key: -11d4bbff'
+            label: Text
+            name: '-11d4bbff'
+            widget: string
+          - hint: 'Original text: Password, key: 4c641ebb'
+            label: Text
+            name: 4c641ebb
+            widget: string
+          - hint: >-
+              Original text: Incorrect password. Please try again., key:
+              -f5c4b5f
+            label: Text
+            name: '-f5c4b5f'
+            widget: string
+      - label: Links
+        name: links
+        file: cms/_data/links.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Links
+          - hint: >-
+              Original link: https://www.facebook.com/tripassdesignco, key:
+              2f261af6
+            label: Link
+            name: 2f261af6
+            widget: string
+          - hint: >-
+              Original link: https://www.instagram.com/tripassdesign/, key:
+              1611d445
+            label: Link
+            name: 1611d445
+            widget: string
+          - hint: 'Original link: https://twitter.com/tripassdesign, key: 7bc3ce42'
+            label: Link
+            name: 7bc3ce42
+            widget: string
+          - hint: >-
+              Original link: https://www.linkedin.com/company/34756814/, key:
+              4360e001
+            label: Link
+            name: '4360e001'
+            widget: string
+          - hint: 'Original link: /schedule-call/, key: 45316cca'
+            label: Link
+            name: 45316cca
+            widget: string
+          - hint: 'Original link: /, key: 2f'
+            label: Link
+            name: 2f
+            widget: string
+          - hint: 'Original link: /about/, key: 61642f31'
+            label: Link
+            name: 61642f31
+            widget: string
+          - hint: 'Original link: /portfolio/, key: 6ec07556'
+            label: Link
+            name: 6ec07556
+            widget: string
+          - hint: 'Original link: /pricing/, key: -d9445a8'
+            label: Link
+            name: '-d9445a8'
+            widget: string
+          - hint: 'Original link: /blog/, key: 55cb89fe'
+            label: Link
+            name: 55cb89fe
+            widget: string
+          - hint: 'Original link: #, key: 23'
+            label: Link
+            name: '23'
+            widget: string
+          - hint: 'Original link: /services/new-businesses, key: 5e637f7d'
+            label: Link
+            name: 5e637f7d
+            widget: string
+          - hint: 'Original link: /services/existing-businesses, key: -59c8bd92'
+            label: Link
+            name: '-59c8bd92'
+            widget: string
+          - hint: >-
+              Original link:
+              https://www.linkedin.com/company/34756814/admin/feed/posts/, key:
+              f76efac
+            label: Link
+            name: f76efac
+            widget: string
+          - hint: 'Original link: /legal/terms/, key: -6c503ab3'
+            label: Link
+            name: '-6c503ab3'
+            widget: string
+          - hint: 'Original link: /legal/privacy/, key: 681bce2c'
+            label: Link
+            name: 681bce2c
+            widget: string
+          - hint: 'Original link: /legal/cookies/, key: -73606ffb'
+            label: Link
+            name: '-73606ffb'
+            widget: string
+          - hint: 'Original link: tel:4807426289, key: -51e481bb'
+            label: Link
+            name: '-51e481bb'
+            widget: string
+          - hint: >-
+              Original link:
+              mailto:bfuller@tripassdesign.com?subject=Project%20Inquiry, key:
+              -577a2090
+            label: Link
+            name: '-577a2090'
+            widget: string
+          - hint: 'Original link: /contact/inquire/, key: -5841afe6'
+            label: Link
+            name: '-5841afe6'
+            widget: string
+          - hint: 'Original link: mailto:hello@tripassdesign.com, key: 16df5597'
+            label: Link
+            name: 16df5597
+            widget: string
+          - hint: >-
+              Original link:
+              https://chat.openai.com/c/www.tripassdesign.com/schedule-call,
+              key: -2bf650d4
+            label: Link
+            name: '-2bf650d4'
+            widget: string
+          - hint: >-
+              Original link:
+              mailto:bfuller@tripassdesign.com?subject=I%20am%20having%20trouble%20with%20the%20inquiry%20form,
+              key: 5982fc15
+            label: Link
+            name: 5982fc15
+            widget: string
+          - hint: 'Original link: #branding-packages, key: 210321bc'
+            label: Link
+            name: 210321bc
+            widget: string
+          - hint: 'Original link: #website-packages, key: 2e9bd002'
+            label: Link
+            name: 2e9bd002
+            widget: string
+          - hint: 'Original link: #single-services, key: f1b5c0'
+            label: Link
+            name: f1b5c0
+            widget: string
+          - hint: 'Original link: mailto:bfuller@tripassdesign.com, key: 7c9c0a23'
+            label: Link
+            name: 7c9c0a23
+            widget: string
+      - label: Images
+        name: images
+        file: cms/_data/images.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Images
+          - label: Image
+            name: i4641ca97
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 26ab12fc
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 211b7453
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 71c55254
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '18974511'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: i238db133
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: if860d26
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 325c8aa3
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 13ee6882
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 6be4aa25
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-5de73457'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-5e8ef261'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-78ca89c3'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-c82257b'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 71ac648d
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 13cc1f6
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-50b1a0f2'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 6ff78bee
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 6e42b34f
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 6ad90211
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-3cbca8bd'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 6cfa230f
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 4cded147
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-31e14406'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 39f1450a
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: a487635
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-1a25e48e'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 321f416f
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-1d0f8ec8'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: 6c8ddab0
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-7a700be7'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+publish_mode: editorial_workflow
