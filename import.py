@@ -1,5 +1,6 @@
 import os
 import json
+import re
 
 def flatten_dict(d, parent_key='', sep='_'):
     items = []
@@ -42,10 +43,14 @@ def replace_placeholders_in_file(file_path, links, texts, images, snippets_to_re
         content = content.replace(placeholder, value)
     
     for key, value in images.items():
-        placeholder = f'{{{{ images.{key} }}}}'
-        if placeholder in content:
-            print(f"Replacing {placeholder} with {value}")
-        content = content.replace(placeholder, value)
+        url_pattern = re.compile(rf'{{{{\s*images\.{key}\.url\s*}}}}')
+        alt_pattern = re.compile(rf'{{{{\s*images\.{key}\.alt\s*\|\s*escape\s*}}}}')
+        if url_pattern.search(content):
+            print(f"Replacing image URL placeholder for key {key} with {value}")
+        if alt_pattern.search(content):
+            print(f"Replacing image ALT placeholder for key {key} with {value}")
+        content = url_pattern.sub(value, content)
+        content = alt_pattern.sub(value, content)
 
     # Check if content was changed for debugging
     if content != original_content:
