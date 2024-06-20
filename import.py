@@ -27,6 +27,11 @@ with open(texts_file, 'r', encoding='utf-8') as file:
 with open(images_file, 'r', encoding='utf-8') as file:
     images = flatten_dict(json.load(file))
 
+# Print the flattened data for debugging
+print("Links data:", links)
+print("Texts data:", texts)
+print("Images data:", images)
+
 # Folder containing the HTML files
 theme_folder = 'theme'
 
@@ -37,9 +42,16 @@ for filename in os.listdir(theme_folder):
         with open(file_path, 'r', encoding='utf-8') as file:
             content = file.read()
 
+        # Initial content for debugging
+        original_content = content
+
         # Replace placeholders
         for key, value in {**links, **texts, **images}.items():
             content = content.replace(f'{{{{ {key} }}}}', value)
+
+        # Check if content was changed for debugging
+        if content != original_content:
+            print(f"Changes made to {filename}")
 
         # Write the updated content back to the file
         with open(file_path, 'w', encoding='utf-8') as file:
