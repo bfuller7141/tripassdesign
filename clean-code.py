@@ -22,11 +22,11 @@ def clean_html(html_content):
             if "{{ settings.site.apple_touch_icon" in link['href']:
                 link['href'] = "{{ settings.site.apple_touch_icon | default: 'images/favicon.png' }}"
 
-    # Preserve specific inline formatting
+    # Preserve specific inline formatting for title-small divs
     for div in soup.find_all('div', class_='title-small'):
-        # Combine text and nested spans into a single line
-        new_content = ''.join(str(e).strip() for e in div.contents).replace('\n', '')
-        new_div = BeautifulSoup(f'<div class="title-small">{new_content}</div>', 'html.parser').div
+        new_content = ''.join(str(e).strip() for e in div.contents)
+        new_div = soup.new_tag('div', **{'class': 'title-small'})
+        new_div.append(BeautifulSoup(new_content, 'html.parser'))
         div.replace_with(new_div)
 
     return str(soup)
