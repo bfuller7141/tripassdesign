@@ -4,11 +4,16 @@ import cssutils
 import jsbeautifier
 
 # Base directory containing all your folders
-base_directory = 'path/to/your/theme'
+base_directory = r'C:\Users\Tripass - Brandon\Documents\GitHub\tripassdesign\theme'
 
-# Function to clean HTML
+# Function to clean and enhance HTML
 def clean_html(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
+
+    # Add lang attribute if missing
+    if not soup.html.has_attr('lang'):
+        soup.html['lang'] = 'en'
+
     return soup.prettify()
 
 # Function to clean CSS
@@ -40,16 +45,20 @@ for directory in directories_to_clean:
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
 
+            cleaned_content = content
+
             if file.endswith('.html'):
                 cleaned_content = clean_html(content)
             elif file.endswith('.css'):
                 cleaned_content = clean_css(content)
             elif file.endswith('.js'):
                 cleaned_content = clean_js(content)
-            else:
-                continue  # Skip files that are not HTML, CSS, or JS
 
-            with open(file_path, 'w', encoding='utf-8') as f:
-                f.write(cleaned_content)
+            if cleaned_content != content:
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(cleaned_content)
+                print(f"Cleaned and updated: {file_path}")
+            else:
+                print(f"No changes made to: {file_path}")
 
 print("Code cleaning completed.")
