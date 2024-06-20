@@ -29,7 +29,7 @@ def replace_placeholders_in_file(file_path, links, texts, images, snippets_to_re
     for snippet in snippets_to_remove:
         content = remove_specific_snippet(content, snippet)
 
-    # Replace placeholders
+    # Replace link and text placeholders
     for key, value in links.items():
         placeholder = f'{{{{ links.{key} }}}}'
         if placeholder in content:
@@ -41,16 +41,19 @@ def replace_placeholders_in_file(file_path, links, texts, images, snippets_to_re
         if placeholder in content:
             print(f"Replacing {placeholder} with {value}")
         content = content.replace(placeholder, value)
-    
+
+    # Replace image placeholders
     for key, value in images.items():
-        url_pattern = re.compile(rf'{{{{\s*images\.{key}\.url\s*}}}}')
-        alt_pattern = re.compile(rf'{{{{\s*images\.{key}\.alt\s*\|\s*escape\s*}}}}')
-        if url_pattern.search(content):
-            print(f"Replacing image URL placeholder for key {key} with {value}")
-        if alt_pattern.search(content):
-            print(f"Replacing image ALT placeholder for key {key} with {value}")
-        content = url_pattern.sub(value, content)
-        content = alt_pattern.sub(value, content)
+        url_placeholder = f'{{{{ images.{key}.url }}}}'
+        alt_placeholder = f'{{{{ images.{key}.alt | escape }}}}'
+        
+        if url_placeholder in content:
+            print(f"Replacing {url_placeholder} with {value}")
+            content = content.replace(url_placeholder, value)
+        
+        if alt_placeholder in content:
+            print(f"Replacing {alt_placeholder} with {value}")
+            content = content.replace(alt_placeholder, value)
 
     # Check if content was changed for debugging
     if content != original_content:
