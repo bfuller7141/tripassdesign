@@ -2358,6 +2358,10 @@ blockquote {
 }
 
 @media screen and (max-width: 767px) {
+  h2 {
+    font-size: 3rem;
+  }
+
   .padding-global.header {
     padding-bottom: 8rem;
     padding-left: 2rem;
@@ -2449,6 +2453,14 @@ blockquote {
 }
 
 @media screen and (max-width: 479px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
   .announcement {
     height: 3rem;
     padding: 0 1rem;
@@ -2487,6 +2499,10 @@ blockquote {
   .wrapper-column {
     grid-column-gap: 3rem;
     grid-row-gap: 3rem;
+  }
+
+  .paragraph.hide-mobile {
+    display: none;
   }
 
   .nav-main {
