@@ -11,6 +11,40 @@ def flatten_dict(d, parent_key='', sep='_'):
             items.append((new_key, str(v)))
     return dict(items)
 
+def replace_placeholders_in_file(file_path, links, texts, images):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+
+    # Initial content for debugging
+    original_content = content
+
+    # Replace placeholders
+    for key, value in links.items():
+        placeholder = f'{{{{ links.{key} }}}}'
+        if placeholder in content:
+            print(f"Replacing {placeholder} with {value}")
+        content = content.replace(placeholder, value)
+    
+    for key, value in texts.items():
+        placeholder = f'{{{{ texts.{key} }}}}'
+        if placeholder in content:
+            print(f"Replacing {placeholder} with {value}")
+        content = content.replace(placeholder, value)
+    
+    for key, value in images.items():
+        placeholder = f'{{{{ images.{key} }}}}'
+        if placeholder in content:
+            print(f"Replacing {placeholder} with {value}")
+        content = content.replace(placeholder, value)
+
+    # Check if content was changed for debugging
+    if content != original_content:
+        print(f"Changes made to {file_path}")
+
+    # Write the updated content back to the file
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
+
 # Paths to the JSON files
 data_folder = 'cms/_data'
 links_file = os.path.join(data_folder, 'links.json')
@@ -35,41 +69,11 @@ print("Images data:", images)
 # Folder containing the HTML files
 theme_folder = 'theme'
 
-# Replace placeholders in the HTML files
-for filename in os.listdir(theme_folder):
-    if filename.endswith('.html'):
-        file_path = os.path.join(theme_folder, filename)
-        with open(file_path, 'r', encoding='utf-8') as file:
-            content = file.read()
-
-        # Initial content for debugging
-        original_content = content
-
-        # Replace placeholders
-        for key, value in links.items():
-            placeholder = f'{{{{ links.{key} }}}}'
-            if placeholder in content:
-                print(f"Replacing {placeholder} with {value}")
-            content = content.replace(placeholder, value)
-        
-        for key, value in texts.items():
-            placeholder = f'{{{{ texts.{key} }}}}'
-            if placeholder in content:
-                print(f"Replacing {placeholder} with {value}")
-            content = content.replace(placeholder, value)
-        
-        for key, value in images.items():
-            placeholder = f'{{{{ images.{key} }}}}'
-            if placeholder in content:
-                print(f"Replacing {placeholder} with {value}")
-            content = content.replace(placeholder, value)
-
-        # Check if content was changed for debugging
-        if content != original_content:
-            print(f"Changes made to {filename}")
-
-        # Write the updated content back to the file
-        with open(file_path, 'w', encoding='utf-8') as file:
-            file.write(content)
+# Traverse all files in the theme folder and its subfolders
+for root, dirs, files in os.walk(theme_folder):
+    for filename in files:
+        if filename.endswith('.html'):
+            file_path = os.path.join(root, filename)
+            replace_placeholders_in_file(file_path, links, texts, images)
 
 print("Placeholders replaced successfully.")
