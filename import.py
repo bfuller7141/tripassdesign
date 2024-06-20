@@ -46,13 +46,12 @@ def replace_placeholders_in_file(file_path, links, texts, images, snippets_to_re
         alt_placeholder = f'{{{{ images.{key}.alt | escape }}}}'
         
         if url_placeholder in content:
-            print(f"Replacing {url_placeholder} with {value} in {file_path}")
-            content = content.replace(url_placeholder, value)
+            print(f"Replacing {url_placeholder} with {value["url"]} in {file_path}")
+            content = content.replace(url_placeholder, value["url"])
         
         if alt_placeholder in content:
-            alt_value = value.get('alt', '')  # Assuming 'alt' key exists in the dictionary
-            print(f"Replacing {alt_placeholder} with {alt_value} in {file_path}")
-            content = content.replace(alt_placeholder, alt_value)
+            print(f"Replacing {alt_placeholder} with {value["alt"]} in {file_path}")
+            content = content.replace(alt_placeholder, value["alt"])
 
     # Check if content was changed for debugging
     if content != original_content:
@@ -76,7 +75,7 @@ with open(texts_file, 'r', encoding='utf-8') as file:
     texts = flatten_dict(json.load(file))
 
 with open(images_file, 'r', encoding='utf-8') as file:
-    images = flatten_dict(json.load(file))
+    images = json.load(file)
 
 # Print the flattened data for debugging
 print("Links data:", links)
