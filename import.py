@@ -43,7 +43,10 @@ def replace_placeholders_in_file(file_path, links, texts, images, script_content
 
     # Replace placeholders
     for key, value in {**links, **texts, **images}.items():
-        content = content.replace(f'{{{{ {key} }}}}', value)
+        placeholder = f'{{{{ {key} }}}}'
+        if placeholder in content:
+            print(f'Replacing placeholder: {placeholder} with value: {value} in file: {file_path}')
+        content = content.replace(placeholder, value)
 
     # Write the updated content back to the file
     with open(file_path, 'w', encoding='utf-8') as file:
@@ -54,6 +57,7 @@ for root, dirs, files in os.walk(theme_folder):
     for filename in files:
         if filename.endswith('.html'):
             file_path = os.path.join(root, filename)
+            print(f'Processing file: {file_path}')
             replace_placeholders_in_file(file_path, links, texts, images, script_content_to_remove)
 
 print("Placeholders replaced and script content removed successfully.")
