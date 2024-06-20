@@ -1,6 +1,5 @@
 import os
 import json
-import re
 
 def flatten_dict(d, parent_key='', sep='_'):
     items = []
@@ -22,7 +21,6 @@ def replace_placeholders_in_file(file_path, links, texts, images, snippets_to_re
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
 
-    # Initial content for debugging
     original_content = content
 
     # Remove specific snippets
@@ -33,13 +31,13 @@ def replace_placeholders_in_file(file_path, links, texts, images, snippets_to_re
     for key, value in links.items():
         placeholder = f'{{{{ links.{key} }}}}'
         if placeholder in content:
-            print(f"Replacing {placeholder} with {value}")
+            print(f"Replacing {placeholder} with {value} in {file_path}")
         content = content.replace(placeholder, value)
     
     for key, value in texts.items():
         placeholder = f'{{{{ texts.{key} }}}}'
         if placeholder in content:
-            print(f"Replacing {placeholder} with {value}")
+            print(f"Replacing {placeholder} with {value} in {file_path}")
         content = content.replace(placeholder, value)
 
     # Replace image placeholders
@@ -48,12 +46,13 @@ def replace_placeholders_in_file(file_path, links, texts, images, snippets_to_re
         alt_placeholder = f'{{{{ images.{key}.alt | escape }}}}'
         
         if url_placeholder in content:
-            print(f"Replacing {url_placeholder} with {value}")
+            print(f"Replacing {url_placeholder} with {value} in {file_path}")
             content = content.replace(url_placeholder, value)
         
         if alt_placeholder in content:
-            print(f"Replacing {alt_placeholder} with {value}")
-            content = content.replace(alt_placeholder, value)
+            alt_value = value.get('alt', '')  # Assuming 'alt' key exists in the dictionary
+            print(f"Replacing {alt_placeholder} with {alt_value} in {file_path}")
+            content = content.replace(alt_placeholder, alt_value)
 
     # Check if content was changed for debugging
     if content != original_content:
