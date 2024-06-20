@@ -11,6 +11,49 @@ def flatten_dict(d, parent_key='', sep='_'):
             items.append((new_key, str(v)))
     return dict(items)
 
+def remove_specific_snippet(content, snippet):
+    if snippet in content:
+        print("Specific snippet found and removed.")
+        content = content.replace(snippet, '')
+    return content
+
+def replace_placeholders_in_file(file_path, links, texts, images, snippet_to_remove):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+
+    # Initial content for debugging
+    original_content = content
+
+    # Remove specific snippet
+    content = remove_specific_snippet(content, snippet_to_remove)
+
+    # Replace placeholders
+    for key, value in links.items():
+        placeholder = f'{{{{ links.{key} }}}}'
+        if placeholder in content:
+            print(f"Replacing {placeholder} with {value}")
+        content = content.replace(placeholder, value)
+    
+    for key, value in texts.items():
+        placeholder = f'{{{{ texts.{key} }}}}'
+        if placeholder in content:
+            print(f"Replacing {placeholder} with {value}")
+        content = content.replace(placeholder, value)
+    
+    for key, value in images.items():
+        placeholder = f'{{{{ images.{key} }}}}'
+        if placeholder in content:
+            print(f"Replacing {placeholder} with {value}")
+        content = content.replace(placeholder, value)
+
+    # Check if content was changed for debugging
+    if content != original_content:
+        print(f"Changes made to {file_path}")
+
+    # Write the updated content back to the file
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
+
 # Paths to the JSON files
 data_folder = 'cms/_data'
 links_file = os.path.join(data_folder, 'links.json')
@@ -27,37 +70,22 @@ with open(texts_file, 'r', encoding='utf-8') as file:
 with open(images_file, 'r', encoding='utf-8') as file:
     images = flatten_dict(json.load(file))
 
+# Print the flattened data for debugging
+print("Links data:", links)
+print("Texts data:", texts)
+print("Images data:", images)
+
+# Snippet to remove
+snippet_to_remove = """<script src="/assets/js/udesly-11ty.min.js" async="" defer=""></script>{{ settings.site.footer_additional_content }}<script>window.netlifyIdentity&&window.netlifyIdentity.on("init",a=>{a||window.netlifyIdentity.on("login",()=>{document.location.href="/admin/"})});</script><script type="module">import*as UdeslyBanner from"https://cdn.jsdelivr.net/npm/udesly-ad-banner@0.0.4/loader/index.js";UdeslyBanner.defineCustomElements(),document.body.append(document.createElement("udesly-banner"));</script>"""
+
 # Folder containing the HTML files
 theme_folder = 'theme'
-
-# Specific script content to be removed
-script_content_to_remove = '''<script src="/assets/js/udesly-11ty.min.js" async="" defer=""></script>{{ settings.site.footer_additional_content }}<script>window.netlifyIdentity&&window.netlifyIdentity.on("init",a=>{a||window.netlifyIdentity.on("login",()=>{document.location.href="/admin/"})});</script><script type="module">import*as UdeslyBanner from"https://cdn.jsdelivr.net/npm/udesly-ad-banner@0.0.4/loader/index.js";UdeslyBanner.defineCustomElements(),document.body.append(document.createElement("udesly-banner"));</script>'''
-
-# Function to replace placeholders and remove specific script content in an HTML file
-def replace_placeholders_in_file(file_path, links, texts, images, script_content_to_remove):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        content = file.read()
-
-    # Remove the specific script content
-    content = content.replace(script_content_to_remove, '')
-
-    # Replace placeholders
-    for key, value in {**links, **texts, **images}.items():
-        placeholder = f'{{{{ {key} }}}}'
-        if placeholder in content:
-            print(f'Replacing placeholder: {placeholder} with value: {value} in file: {file_path}')
-        content = content.replace(placeholder, value)
-
-    # Write the updated content back to the file
-    with open(file_path, 'w', encoding='utf-8') as file:
-        file.write(content)
 
 # Traverse all files in the theme folder and its subfolders
 for root, dirs, files in os.walk(theme_folder):
     for filename in files:
         if filename.endswith('.html'):
             file_path = os.path.join(root, filename)
-            print(f'Processing file: {file_path}')
-            replace_placeholders_in_file(file_path, links, texts, images, script_content_to_remove)
+            replace_placeholders_in_file(file_path, links, texts, images, snippet_to_remove)
 
-print("Placeholders replaced and script content removed successfully.")
+print("Placeholders replaced and specific snippet removed successfully.")
