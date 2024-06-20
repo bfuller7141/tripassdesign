@@ -25,11 +25,11 @@ def clean_html(html_content):
     # Preserve specific inline formatting
     for div in soup.find_all('div', class_='title-small'):
         # Combine text and nested spans into a single line
-        new_content = ''.join(str(e) for e in div.contents).strip()
-        new_div = BeautifulSoup(f'<div class="title-small">{new_content}</div>', 'html.parser')
+        new_content = ''.join(str(e).strip() for e in div.contents).replace('\n', '')
+        new_div = BeautifulSoup(f'<div class="title-small">{new_content}</div>', 'html.parser').div
         div.replace_with(new_div)
 
-    return soup.prettify(formatter="html")
+    return str(soup)
 
 # Function to clean CSS
 def clean_css(css_content):
