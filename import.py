@@ -46,8 +46,23 @@ for filename in os.listdir(theme_folder):
         original_content = content
 
         # Replace placeholders
-        for key, value in {**links, **texts, **images}.items():
-            content = content.replace(f'{{{{ {key} }}}}', value)
+        for key, value in links.items():
+            placeholder = f'{{{{ links.{key} }}}}'
+            if placeholder in content:
+                print(f"Replacing {placeholder} with {value}")
+            content = content.replace(placeholder, value)
+        
+        for key, value in texts.items():
+            placeholder = f'{{{{ texts.{key} }}}}'
+            if placeholder in content:
+                print(f"Replacing {placeholder} with {value}")
+            content = content.replace(placeholder, value)
+        
+        for key, value in images.items():
+            placeholder = f'{{{{ images.{key} }}}}'
+            if placeholder in content:
+                print(f"Replacing {placeholder} with {value}")
+            content = content.replace(placeholder, value)
 
         # Check if content was changed for debugging
         if content != original_content:
