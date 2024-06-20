@@ -17,15 +17,16 @@ def remove_specific_snippet(content, snippet):
         content = content.replace(snippet, '')
     return content
 
-def replace_placeholders_in_file(file_path, links, texts, images, snippet_to_remove):
+def replace_placeholders_in_file(file_path, links, texts, images, snippets_to_remove):
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
 
     # Initial content for debugging
     original_content = content
 
-    # Remove specific snippet
-    content = remove_specific_snippet(content, snippet_to_remove)
+    # Remove specific snippets
+    for snippet in snippets_to_remove:
+        content = remove_specific_snippet(content, snippet)
 
     # Replace placeholders
     for key, value in links.items():
@@ -75,8 +76,11 @@ print("Links data:", links)
 print("Texts data:", texts)
 print("Images data:", images)
 
-# Snippet to remove
-snippet_to_remove = """<script src="/assets/js/udesly-11ty.min.js" async="" defer=""></script>{{ settings.site.footer_additional_content }}<script>window.netlifyIdentity&&window.netlifyIdentity.on("init",a=>{a||window.netlifyIdentity.on("login",()=>{document.location.href="/admin/"})});</script><script type="module">import*as UdeslyBanner from"https://cdn.jsdelivr.net/npm/udesly-ad-banner@0.0.4/loader/index.js";UdeslyBanner.defineCustomElements(),document.body.append(document.createElement("udesly-banner"));</script>"""
+# Snippets to remove
+snippets_to_remove = [
+    """<script src="/assets/js/udesly-11ty.min.js" async="" defer=""></script>{{ settings.site.footer_additional_content }}<script>window.netlifyIdentity&&window.netlifyIdentity.on("init",a=>{a||window.netlifyIdentity.on("login",()=>{document.location.href="/admin/"})});</script><script type="module">import*as UdeslyBanner from"https://cdn.jsdelivr.net/npm/udesly-ad-banner@0.0.4/loader/index.js";UdeslyBanner.defineCustomElements(),document.body.append(document.createElement("udesly-banner"));</script>""",
+    """<script src="/assets/js/udesly-11ty.min.js" async="" defer=""></script>{{ settings.site.footer_additional_content }}<script type="module">import*as UdeslyBanner from"https://cdn.jsdelivr.net/npm/udesly-ad-banner@0.0.4/loader/index.js";UdeslyBanner.defineCustomElements(),document.body.append(document.createElement("udesly-banner"));</script>"""
+]
 
 # Folder containing the HTML files
 theme_folder = 'theme'
@@ -86,6 +90,6 @@ for root, dirs, files in os.walk(theme_folder):
     for filename in files:
         if filename.endswith('.html'):
             file_path = os.path.join(root, filename)
-            replace_placeholders_in_file(file_path, links, texts, images, snippet_to_remove)
+            replace_placeholders_in_file(file_path, links, texts, images, snippets_to_remove)
 
 print("Placeholders replaced and specific snippet removed successfully.")
