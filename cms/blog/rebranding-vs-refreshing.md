@@ -1,20 +1,21 @@
 ---
+title: Rebranding vs. Refreshing Your Brand
+created-on: 2024-06-03T17:25:13.387Z
+updated-on: 2024-06-20T05:44:27.584Z
+published-on: 2024-06-20T05:47:54.938Z
 f_category: Brand Design
-title: Rebranding vs. Refreshing
 f_thumbnail-image:
   url: /assets/external/665dfae1a221ecb71790fd5d_thumbnail_image.webp
   alt: null
-slug: rebranding-vs-refreshing
+f_description: Should you rebrand or simply refresh? This in-depth blog post
+  explores the critical differences between rebranding and refreshing your
+  brand.
 f_author:
   - cms/author/brandon-fuller.md
-updated-on: '2024-06-20T05:44:27.584Z'
-created-on: '2024-06-03T17:25:13.387Z'
-published-on: '2024-06-20T05:47:54.938Z'
-f_description: >-
-  Should you rebrand or simply refresh? This in-depth blog post explores the
-  critical differences between rebranding and refreshing your brand.
-layout: '[blog].html'
+layout: "[blog].html"
+slug: rebranding-vs-refreshing
 tags: blog
+date: 2024-06-24T10:49:00.000Z
 ---
 
 Introduction
