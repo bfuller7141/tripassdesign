@@ -1,3 +1,4 @@
+logo_url: https://tripassdesign.com/assets/images/logo_nav.svg
 backend:
   name: git-gateway
   repo: bfuller7141/blueyebison
