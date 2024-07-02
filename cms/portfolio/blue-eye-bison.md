@@ -42,6 +42,9 @@ f_about-project--website-2: >-
 
 
   [Check Out The Live Website](https://blueeyebison.com)
+f_project-tags:
+  - cms/project-tags/tag-268975d54123d548g254.md
+  - cms/project-tags/tag-268975d54123d548g255.md
 tags: portfolio
 layout: "[portfolio].html"
 date: 2024-07-02T12:00:00.000Z
