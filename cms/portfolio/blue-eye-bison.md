@@ -41,7 +41,7 @@ f_about-project--website-2: >-
   In both projects, our collaboration with Blue Eye Bison was driven by a shared passion for storytelling and a commitment to excellence. The result is a brand and website that not only represent Blue Eye Bison's artistry but also inspire and captivate their audience.
 
 
-  [Check out their Site](blueeyebison.com)
+  [Check Out The Live Website](https://blueeyebison.com)
 tags: portfolio
 layout: "[portfolio].html"
 date: 2024-07-02T12:00:00.000Z
