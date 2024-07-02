@@ -41,11 +41,7 @@ f_about-project--website-2: >-
   The website has become a fundamental tool for 303 Notary, aiding in client engagement and service promotion. It serves as a valuable resource for potential customers, providing them with essential information and a direct means to schedule notarial services. This project demonstrated how a well-designed website could streamline business operations and enhance customer interaction.
 
 
-  ```
-
-  <a class="button w-button" href="https://www.303-notary.com">Check out the site</a>
-
-  ```
+  [Check out their Website](https://www.303-notary.com)
 f_project-tags:
   - cms/project-tags/tag-268975d54123d548g254.md
   - cms/project-tags/tag-268975d54123d548g255.md
