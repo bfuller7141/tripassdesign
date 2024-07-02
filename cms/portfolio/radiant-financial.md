@@ -58,7 +58,7 @@ f_about-project--website-2: >-
   The refreshed website has significantly enhanced Radiant Financial's online presence, effectively communicating their services and community involvement to clients and prospects. The user-friendly CMS implementation has streamlined content management, allowing Radiant Financial to focus on delivering exceptional service while maintaining an engaging and up-to-date web presence.
 
 
-  [Check out their Site](radiantfg.com)
+  [Check Out The Live Site](https://www.radiantfg.com)
 f_project-tags:
   - cms/project-tags/tag-268975d54123d548g255.md
 tags: portfolio
