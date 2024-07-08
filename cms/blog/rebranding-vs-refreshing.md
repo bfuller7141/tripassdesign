@@ -1,21 +1,21 @@
 ---
-title: Rebranding vs. Refreshing Your Brand
-created-on: 2024-06-03T17:25:13.387Z
-updated-on: 2024-06-20T05:44:27.584Z
-published-on: 2024-06-20T05:47:54.938Z
 f_category: Brand Design
+title: Rebranding vs. Refreshing
 f_thumbnail-image:
-  url: /assets/external/665dfae1a221ecb71790fd5d_thumbnail_image.webp
+  url: >-
+    https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/665dfae1a221ecb71790fd5d_thumbnail_image.webp
   alt: null
-f_description: Should you rebrand or simply refresh? This in-depth blog post
-  explores the critical differences between rebranding and refreshing your
-  brand.
+slug: rebranding-vs-refreshing
 f_author:
   - cms/author/brandon-fuller.md
-layout: "[blog].html"
-slug: rebranding-vs-refreshing
+updated-on: '2024-07-08T16:32:41.624Z'
+created-on: '2024-06-03T17:25:13.387Z'
+published-on: '2024-06-20T05:47:54.938Z'
+f_description: >-
+  Should you rebrand or simply refresh? This in-depth blog post explores the
+  critical differences between rebranding and refreshing your brand.
+layout: '[blog].html'
 tags: blog
-date: 2024-06-24T10:49:00.000Z
 ---
 
 Introduction
@@ -30,7 +30,7 @@ Rebranding is not merely an aesthetic change but a complete transformation that 
 
 ‍
 
-![__wf_reserved_decorative](/assets/external/665dfb6526741ce6ca584c1c_twitter20to20x20rebrand.webp)
+![__wf_reserved_decorative](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/665dfb6526741ce6ca584c1c_twitter%20to%20x%20rebrand.webp)
 
 Twitter rebranded to X in 2023
 
@@ -57,7 +57,7 @@ A brand refresh is more than a facelift; it’s a strategic enhancement of your 
 
 ‍
 
-![Rebranding for Bakers Dozen designed by Tripass Design.](/assets/external/665dfbbf66075671d022704e_bakers20dozen20refresh.webp)
+![Rebranding for Bakers Dozen designed by Tripass Design.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/665dfbbf66075671d022704e_bakers%20dozen%20refresh.webp)
 
 Brand refresh for Bakers Dozen by Tripass Design
 
@@ -80,7 +80,7 @@ Choosing between a refresh and a rebrand involves more than just aesthetic consi
 
 ‍
 
-![Group of business professionals in a meeting. Photo by Redd F on Unsplash.](/assets/external/665dfbfedd8601b2d13a54e9_photo20by20redd20f20on20unsplash.webp)
+![Group of business professionals in a meeting. Photo by Redd F on Unsplash.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/665dfbfedd8601b2d13a54e9_Photo%20by%20Redd%20F%20on%20Unsplash.webp)
 
 Photo by [Redd F](https://unsplash.com/@raddfilms?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/talking-people-sitting-beside-table-PTRzqc_h1r4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
@@ -108,7 +108,7 @@ Whether opting for a refresh or a rebrand, the implementation process should be 
 
 ‍
 
-![Sign of a local cafe in Georgia. Photo by Matt Briney on Unsplash.](/assets/external/665dfc3b538d18a0ce81ed28_photo20by20matt20briney20on20unsplash.webp)
+![Sign of a local cafe in Georgia. Photo by Matt Briney on Unsplash.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/665dfc3b538d18a0ce81ed28_Photo%20by%20Matt%20Briney%20on%20Unsplash.webp)
 
 Photo by [Matt Briney](https://unsplash.com/@mbriney?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/collins-quarter-signage-during-daytime-yKHeHJVFKVk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 

@@ -1,7 +1,8 @@
 ---
 title: Brandon Fuller
 f_picture:
-  url: /assets/external/6629b46a8176028707b8de55_profile20photo.png
+  url: >-
+    https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/6629b46a8176028707b8de55_Profile%20Photo.png
   alt: null
 slug: brandon-fuller
 updated-on: '2024-04-25T01:40:13.705Z'

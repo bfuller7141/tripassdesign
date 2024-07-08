@@ -12,24 +12,33 @@ f_about-business: >-
 title: Where Communication Meets Artistry
 slug: cma
 f_thumbnail:
-  url: /assets/external/662b2d45be6bc06e8ef6f348_cma-thumbnail.webp
+  url: >-
+    https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/662b2d45be6bc06e8ef6f348_cma-thumbnail.webp
   alt: null
 f_branding-gallery:
-  - url: /assets/external/662b2f6c67d3404ab0163979_cma-branding_1.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/662b2f6c67d3404ab0163979_cma-branding_1.webp
     alt: null
-  - url: /assets/external/662b2f6d1a2d80f0d8ae8664_cma-branding_2.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/662b2f6d1a2d80f0d8ae8664_cma-branding_2.webp
     alt: null
-  - url: /assets/external/662b2f6c427cf2e764310b7b_cma-branding_3.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/662b2f6c427cf2e764310b7b_cma-branding_3.webp
     alt: null
-  - url: /assets/external/662b2f6c6560f16d4680853a_cma-branding_4.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/662b2f6c6560f16d4680853a_cma-branding_4.webp
     alt: null
-  - url: /assets/external/662b2f6c3a6d7d755525b89f_cma-branding_5.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/662b2f6c3a6d7d755525b89f_cma-branding_5.webp
     alt: null
-  - url: /assets/external/662b2f6cb239b22dec356e7e_cma-branding_6.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/662b2f6cb239b22dec356e7e_cma-branding_6.webp
     alt: null
-  - url: /assets/external/662b2f6d427cf2e764310d19_cma-branding_7.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/662b2f6d427cf2e764310d19_cma-branding_7.webp
     alt: null
-  - url: /assets/external/662b2f6ce7afa9a2f6804f48_cma-branding_8.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/662b2f6ce7afa9a2f6804f48_cma-branding_8.webp
     alt: null
 updated-on: '2024-04-26T04:42:00.512Z'
 created-on: '2024-04-26T04:39:13.406Z'

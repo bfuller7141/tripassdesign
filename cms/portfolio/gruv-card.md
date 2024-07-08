@@ -12,24 +12,33 @@ f_about-business: >-
 title: Gruv Card
 slug: gruv-card
 f_thumbnail:
-  url: /assets/external/663005529b3d0846deb533bb_gruv-thumbnail.webp
+  url: >-
+    https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/663005529b3d0846deb533bb_gruv-thumbnail.webp
   alt: null
 f_branding-gallery:
-  - url: /assets/external/6630056f9d98a44b85e0ec9d_gruv-branding_1.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/6630056f9d98a44b85e0ec9d_gruv-branding_1.webp
     alt: null
-  - url: /assets/external/66300571f6e58a59e7f93cd5_gruv-branding_2.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66300571f6e58a59e7f93cd5_gruv-branding_2.webp
     alt: null
-  - url: /assets/external/663005728c2daed8b0bd458d_gruv-branding_3.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/663005728c2daed8b0bd458d_gruv-branding_3.webp
     alt: null
-  - url: /assets/external/663005742c02962b50a7f51f_gruv-branding_4.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/663005742c02962b50a7f51f_gruv-branding_4.webp
     alt: null
-  - url: /assets/external/66300575503a4cced6eefb35_gruv-branding_5.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66300575503a4cced6eefb35_gruv-branding_5.webp
     alt: null
-  - url: /assets/external/66300576014c518cb323d1d4_gruv-branding_6.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66300576014c518cb323d1d4_gruv-branding_6.webp
     alt: null
-  - url: /assets/external/66300577da50b6ae873591d4_gruv-branding_7.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66300577da50b6ae873591d4_gruv-branding_7.webp
     alt: null
-  - url: /assets/external/66300578132fdad94633c213_gruv-branding_8.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66300578132fdad94633c213_gruv-branding_8.webp
     alt: null
 f_project-tags:
   - cms/project-tags/tag-268975d54123d548g254.md

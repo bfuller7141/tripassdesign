@@ -5,11 +5,13 @@ f_description: >-
   Understanding your target market is crucial for building a successful and
   enduring brand. This comprehensive guide explores the importance of knowi...
 f_cover-image:
-  url: /assets/external/667323eb08ffad47c252ef66_thumbnail_image.webp
+  url: >-
+    https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/667323eb08ffad47c252ef66_thumbnail_image.webp
   alt: null
 slug: using-your-target-market-to-build-a-strong-brand
 f_thumbnail-image:
-  url: /assets/external/667323eb08ffad47c252ef66_thumbnail_image.webp
+  url: >-
+    https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/667323eb08ffad47c252ef66_thumbnail_image.webp
   alt: null
 f_author:
   - cms/author/brandon-fuller.md
@@ -36,7 +38,7 @@ Understanding the wants, needs, and challenges of your target market is the corn
 
 Market research is the first step towards understanding your audience. This involves gathering data on customer demographics, buying habits, preferences, and pain points. Utilize surveys, focus groups, and social media analytics to gain insights into what drives your customers. Tools like Google Analytics and customer feedback platforms can help you identify trends and patterns in customer behavior.
 
-![Group of customers shopping at a local coffee shop.](/assets/external/6673245b240315f44b384f5f_photo20by20joshua20rodriguez20on20unsplash.webp)
+![Group of customers shopping at a local coffee shop.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/6673245b240315f44b384f5f_Photo%20by%20Joshua%20Rodriguez%20on%20Unsplash.webp)
 
 Photo by [Joshua Rodriguez](https://unsplash.com/@jcrod?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/man-buying-coffee-on-counter-f7zm5TDOi4g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
@@ -52,7 +54,7 @@ Amazon uses customer feedback to refine their services and product offerings con
 
 Consider brands like Netflix and Starbucks, which have successfully pivoted based on customer insights. Netflix started as a DVD rental service but shifted to streaming when they noticed the growing demand for digital content. Starbucks expanded its menu and store ambiance based on customer preferences for a more diverse and comfortable experience. These examples highlight the importance of staying attuned to your market's evolving needs.
 
-![Photo of Netflix app on a mobile device.](/assets/external/667324c3e47da8080696c86b_photo20by20souvik20banerjee20on20unsplash.webp)
+![Photo of Netflix app on a mobile device.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/667324c3e47da8080696c86b_Photo%20by%20Souvik%20Banerjee%20on%20Unsplash.webp)
 
 Photo by [Souvik Banerjee](https://unsplash.com/@rswebsols?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/white-tablet-computer-turned-on-displaying-game-I4MTFEPvpdk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
@@ -71,7 +73,7 @@ Social media platforms offer powerful analytics tools that provide insights into
 
 Brands like Wendy’s have mastered the use of social media analytics to engage with their audience. Wendy’s Twitter account, known for its witty and humorous interactions, leverages real-time analytics to respond to trending topics and engage with followers. This strategy has helped Wendy’s build a strong online presence and connect with a younger audience.
 
-![Snippet of a Twitter roast from Wendy's.](/assets/external/667324efce1640e4ce6377dc_httpsx.comWendys.webp)
+![Snippet of a Twitter roast from Wendy's.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/667324efce1640e4ce6377dc_httpsx.comWendys.webp)
 
 Visit [Wendy's on X](http://x.com/Wendys)
 
@@ -85,7 +87,7 @@ Lululemon Athletica, a brand known for its activewear, frequently partners with 
 
 Brands like Red Bull and GoPro have effectively used targeted advertising to reach their audience. Red Bull sponsors extreme sports events and athletes, aligning with their brand image and audience interests. GoPro collaborates with adventure enthusiasts and influencers who create content using their cameras, showcasing the product in action and appealing directly to their target market.
 
-![Red Bull sponsored rally car during a race.](/assets/external/6673255759beff51d6482f7c_photo20by20neil20mark20thomas20on20unsplash.webp)
+![Red Bull sponsored rally car during a race.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/6673255759beff51d6482f7c_Photo%20by%20Neil%20Mark%20Thomas%20on%20Unsplash.webp)
 
 Photo by [Neil Mark Thomas](https://unsplash.com/@neilthomas?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/people-watching-passing-race-car-JYYa9FEPxd4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
@@ -116,7 +118,7 @@ Online communities provide a platform for your audience to connect with each oth
 
 Consider brands like Harley Davidson and Lego, which have successfully built dedicated communities around their products. Harley Davidson fosters a sense of brotherhood and freedom among its riders, organizing events and rides that bring enthusiasts together. Lego engages its community through user-generated content, encouraging fans to share their creations and ideas
 
-![2 men sitting on Harley Davidson motorcycles.](/assets/external/6673259239de0670b6d45ab2_photo20by20harley-davidson20on20unsplash.webp)
+![2 men sitting on Harley Davidson motorcycles.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/6673259239de0670b6d45ab2_Photo%20by%20Harley-Davidson%20on%20Unsplash.webp)
 
 Photo by [Harley-Davidson](https://unsplash.com/@harleydavidson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/two-men-sitting-on-two-parked-cruiser-motorcycles-Sac6Ri0Lhrc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
@@ -143,7 +145,7 @@ Coca-Cola’s marketing campaigns often focus on themes of happiness, togetherne
 
  with people’s names, created an emotional connection by making customers feel special and valued. Disney, known as the “happiest place on earth,” consistently evokes feelings of joy, wonder, and nostalgia through their movies, theme parks, and merchandise.
 
-![Coca-Cola can sitting on the ground.](/assets/external/667325e4405306e80f8b09c7_photo20by20ernest20brillo20on20unsplash.webp)
+![Coca-Cola can sitting on the ground.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/667325e4405306e80f8b09c7_Photo%20by%20Ernest%20Brillo%20on%20Unsplash.webp)
 
 Photo by [Ernest Brillo](https://unsplash.com/@ernest_brillo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/coca-cola-america-tin-can-on-brown-soil-ryTknbJzLLQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
@@ -176,7 +178,7 @@ Apple’s minimalist design philosophy, characterized by sleek lines, simple col
 
 Consider brands like Apple and Starbucks, which have successfully aligned their visual identity with their target market's preferences. Apple's minimalist design and sleek product aesthetics appeal to tech enthusiasts and professionals. Starbucks' warm, inviting store designs and branding elements attract a diverse audience looking for a comfortable, relaxing environment.
 
-![Inside of a Starbucks Coffee shop.](/assets/external/6673262a39de0670b6d4c829_photo20by20s.Ratanak%20on%20Unsplash.webp)
+![Inside of a Starbucks Coffee shop.](https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/6673262a39de0670b6d4c829_Photo%20by%20S.Ratanak%20on%20Unsplash.webp)
 
 Photo by [S.Ratanak](https://unsplash.com/@samboratanak?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/round-brown-wooden-table-aScuVWpmDcQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 

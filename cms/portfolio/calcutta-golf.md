@@ -42,42 +42,59 @@ f_about-project--website-2: >-
 title: Calcutta Golf Academy
 slug: calcutta-golf
 f_thumbnail:
-  url: /assets/external/66390df97af74cbfbc6aa3ef_calcutta-thumbnail.webp
+  url: >-
+    https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390df97af74cbfbc6aa3ef_calcutta-thumbnail.webp
   alt: null
 f_website-gallery:
-  - url: /assets/external/66390e95c7331d21508fcd75_clacutta-website_1.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e95c7331d21508fcd75_clacutta-website_1.webp
     alt: null
-  - url: /assets/external/66390e9725cc9a11dd9e530a_clacutta-website_2.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e9725cc9a11dd9e530a_clacutta-website_2.webp
     alt: null
-  - url: /assets/external/66390e9abefc974c3d9e67ff_clacutta-website_4.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e9abefc974c3d9e67ff_clacutta-website_4.webp
     alt: null
-  - url: /assets/external/66390e9c9c6aa05fb631b72a_clacutta-website_5.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e9c9c6aa05fb631b72a_clacutta-website_5.webp
     alt: null
-  - url: /assets/external/66390e9db2d5d9d5c6fbe979_clacutta-website_6.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e9db2d5d9d5c6fbe979_clacutta-website_6.webp
     alt: null
-  - url: /assets/external/66390e9fdb12c2e2c83b2d2e_clacutta-website_7.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e9fdb12c2e2c83b2d2e_clacutta-website_7.webp
     alt: null
 f_branding-gallery:
-  - url: /assets/external/66390e82dd5c1d2a51563f27_calcutta-branding_1.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e82dd5c1d2a51563f27_calcutta-branding_1.webp
     alt: null
-  - url: /assets/external/66390e8464cd1360099d3a60_calcutta-branding_2.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e8464cd1360099d3a60_calcutta-branding_2.webp
     alt: null
-  - url: /assets/external/66390e869c6aa05fb631a799_calcutta-branding_3.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e869c6aa05fb631a799_calcutta-branding_3.webp
     alt: null
-  - url: /assets/external/66390e889905cbaf8ea548ea_calcutta-branding_4.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e889905cbaf8ea548ea_calcutta-branding_4.webp
     alt: null
-  - url: /assets/external/66390e8a2515c21ec1b63411_calcutta-branding_5.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e8a2515c21ec1b63411_calcutta-branding_5.webp
     alt: null
-  - url: /assets/external/66390e8b4f5781db9b7f4769_calcutta-branding_6.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390e8b4f5781db9b7f4769_calcutta-branding_6.webp
     alt: null
 f_graphics-gallery:
-  - url: /assets/external/66390ea6803ae4a1a0c2779a_calcutta-design_1.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390ea6803ae4a1a0c2779a_calcutta-design_1.webp
     alt: null
-  - url: /assets/external/66390ea817eaccf2261cf93b_calcutta-design_2.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390ea817eaccf2261cf93b_calcutta-design_2.webp
     alt: null
-  - url: /assets/external/66390eaa19e44a37bde53095_calcutta-design_3.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390eaa19e44a37bde53095_calcutta-design_3.webp
     alt: null
-  - url: /assets/external/66390eb2da556dbdce4efe8a_calcutta-design_4.webp
+  - url: >-
+      https://uploads-ssl.webflow.com/66244bd0316335c8eec5c8d7/66390eb2da556dbdce4efe8a_calcutta-design_4.webp
     alt: null
 f_project-tags:
   - cms/project-tags/tag-268975d54123d548g254.md
