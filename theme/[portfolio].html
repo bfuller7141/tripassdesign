@@ -135,7 +135,7 @@
           {%- assign setItems = f_branding-gallery -%}<div class="w-dyn-list">
             {%- unless setItems.length == 0 -%}<div role="list" class="gallery-grid w-dyn-items">
               {%- for setItem in setItems -%}<div role="listitem" class="w-dyn-item">
-                <a href="#" class="w-inline-block w-lightbox"><img src="https://d3e54v103j8qbb.cloudfront.net/img/placeholder-thumb.svg" loading="lazy" alt="" class="image">
+                <a href="#" class="w-inline-block w-lightbox"><img src="{{ setItem.url }}" loading="lazy" alt="" class="image">
                   <script type="application/json" class="w-json">{"items":[{"type":"image","url":"{{ setItem.url }}","caption":""}],"group":"portfolio"}</script>
                 </a>
               </div>{%- endfor -%}
@@ -146,7 +146,7 @@
           <template><div class="w-dyn-list" udesly-repeater="true">
             <div role="list" class="gallery-grid w-dyn-items">
               <div role="listitem" class="w-dyn-item">
-                <a href="{# links.23 #}" class="w-inline-block w-dyn-bind-empty w-lightbox"><img src="{# images.-1f8299d7.url #}" loading="lazy" alt="{# images.-1f8299d7.alt | escape #}" class="image w-dyn-bind-empty">
+                <a href="{# links.23 #}" sym-bind="{&quot;json&quot;:{&quot;type&quot;:&quot;Record&quot;,&quot;val&quot;:{&quot;items&quot;:{&quot;type&quot;:&quot;Call&quot;,&quot;val&quot;:{&quot;fun&quot;:{&quot;type&quot;:&quot;Variable&quot;,&quot;val&quot;:[&quot;DynamoGateway&quot;,&quot;dynamoImageToListOfLightboxMedia&quot;]},&quot;arg&quot;:{&quot;type&quot;:&quot;Select&quot;,&quot;val&quot;:{&quot;from&quot;:{&quot;type&quot;:&quot;Variable&quot;,&quot;val&quot;:&quot;Dynamo&quot;},&quot;prop&quot;:&quot;branding-gallery&quot;#}#}#}}" class="w-inline-block w-dyn-bind-empty w-lightbox"><img src="{# setItem.url #}" loading="lazy" alt="{# images.317f733b.alt | escape #}" class="image">
                   <script type="application/json" class="w-json">{"items":[{"type":"image","url":"{# setItem.url #}","caption":""}],"group":"portfolio"}</script>
                 </a>
               </div>
@@ -166,7 +166,7 @@
           {%- assign setItems = f_website-gallery -%}<div class="w-dyn-list">
             {%- unless setItems.length == 0 -%}<div role="list" class="gallery-grid w-dyn-items">
               {%- for setItem in setItems -%}<div role="listitem" class="w-dyn-item">
-                <a href="#" class="w-inline-block w-lightbox"><img src="https://d3e54v103j8qbb.cloudfront.net/img/placeholder-thumb.svg" loading="lazy" alt="" class="image">
+                <a href="#" class="w-inline-block w-lightbox"><img src="{{ setItem.url }}" loading="lazy" alt="" class="">
                   <script type="application/json" class="w-json">{"items":[{"type":"image","url":"{{ setItem.url }}","caption":""}],"group":"portfolio"}</script>
                 </a>
               </div>{%- endfor -%}
@@ -177,7 +177,7 @@
           <template><div class="w-dyn-list" udesly-repeater="true">
             <div role="list" class="gallery-grid w-dyn-items">
               <div role="listitem" class="w-dyn-item">
-                <a href="{# links.23 #}" class="w-inline-block w-dyn-bind-empty w-lightbox"><img src="{# images.-1f8299d7.url #}" loading="lazy" alt="{# images.-1f8299d7.alt | escape #}" class="image w-dyn-bind-empty">
+                <a href="{# links.23 #}" sym-bind="{&quot;json&quot;:{&quot;type&quot;:&quot;Record&quot;,&quot;val&quot;:{&quot;items&quot;:{&quot;type&quot;:&quot;Call&quot;,&quot;val&quot;:{&quot;fun&quot;:{&quot;type&quot;:&quot;Variable&quot;,&quot;val&quot;:[&quot;DynamoGateway&quot;,&quot;dynamoImageToListOfLightboxMedia&quot;]},&quot;arg&quot;:{&quot;type&quot;:&quot;Select&quot;,&quot;val&quot;:{&quot;from&quot;:{&quot;type&quot;:&quot;Variable&quot;,&quot;val&quot;:&quot;Dynamo&quot;},&quot;prop&quot;:&quot;website-gallery&quot;#}#}#}}" class="w-inline-block w-dyn-bind-empty w-lightbox"><img src="{# setItem.url #}" loading="lazy" alt="{# images.317f733b.alt | escape #}" class="">
                   <script type="application/json" class="w-json">{"items":[{"type":"image","url":"{# setItem.url #}","caption":""}],"group":"portfolio"}</script>
                 </a>
               </div>
@@ -196,7 +196,7 @@
           {%- assign setItems = f_graphics-gallery -%}<div class="w-dyn-list">
             {%- unless setItems.length == 0 -%}<div role="list" class="gallery-grid w-dyn-items">
               {%- for setItem in setItems -%}<div role="listitem" class="w-dyn-item">
-                <a href="#" class="w-inline-block w-lightbox"><img src="https://d3e54v103j8qbb.cloudfront.net/img/placeholder-thumb.svg" loading="lazy" alt="" class="image">
+                <a href="#" class="w-inline-block w-lightbox"><img src="{{ setItem.url }}" loading="lazy" alt="" class="image">
                   <script type="application/json" class="w-json">{"items":[{"type":"image","url":"{{ setItem.url }}","caption":""}],"group":"portfolio"}</script>
                 </a>
               </div>{%- endfor -%}
@@ -207,7 +207,7 @@
           <template><div class="w-dyn-list" udesly-repeater="true">
             <div role="list" class="gallery-grid w-dyn-items">
               <div role="listitem" class="w-dyn-item">
-                <a href="{# links.23 #}" class="w-inline-block w-dyn-bind-empty w-lightbox"><img src="{# images.-1f8299d7.url #}" loading="lazy" alt="{# images.-1f8299d7.alt | escape #}" class="image w-dyn-bind-empty">
+                <a href="{# links.23 #}" sym-bind="{&quot;json&quot;:{&quot;type&quot;:&quot;Record&quot;,&quot;val&quot;:{&quot;items&quot;:{&quot;type&quot;:&quot;Call&quot;,&quot;val&quot;:{&quot;fun&quot;:{&quot;type&quot;:&quot;Variable&quot;,&quot;val&quot;:[&quot;DynamoGateway&quot;,&quot;dynamoImageToListOfLightboxMedia&quot;]},&quot;arg&quot;:{&quot;type&quot;:&quot;Select&quot;,&quot;val&quot;:{&quot;from&quot;:{&quot;type&quot;:&quot;Variable&quot;,&quot;val&quot;:&quot;Dynamo&quot;},&quot;prop&quot;:&quot;graphics-gallery&quot;#}#}#}}" class="w-inline-block w-dyn-bind-empty w-lightbox"><img src="{# setItem.url #}" loading="lazy" alt="{# images.317f733b.alt | escape #}" class="image">
                   <script type="application/json" class="w-json">{"items":[{"type":"image","url":"{# setItem.url #}","caption":""}],"group":"portfolio"}</script>
                 </a>
               </div>
